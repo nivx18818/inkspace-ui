@@ -1,13 +1,11 @@
-import Link from "next/link";
-
 function HeaderActionBar({ post, handleDeletePost }) {
   return (
-    <div className="flex items-center justify-between py-4 border-gray-200 border-y">
+    <div className="flex items-center justify-between border-y border-gray-200 py-4">
       <div className="flex items-center space-x-6">
         <div className="flex items-center space-x-4">
           <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
             <svg
-              className="w-5 h-5"
+              className="h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -23,7 +21,7 @@ function HeaderActionBar({ post, handleDeletePost }) {
           </button>
           <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
             <svg
-              className="w-5 h-5"
+              className="h-5 w-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -42,7 +40,7 @@ function HeaderActionBar({ post, handleDeletePost }) {
       <div className="flex items-center space-x-4">
         <button className="text-gray-600 hover:text-gray-900">
           <svg
-            className="w-5 h-5"
+            className="h-5 w-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -55,12 +53,12 @@ function HeaderActionBar({ post, handleDeletePost }) {
             />
           </svg>
         </button>
-        <Link
+        <a
           href={`/posts/${post.slug}/edit`}
           className="text-gray-600 hover:text-gray-900"
         >
           <svg
-            className="w-5 h-5"
+            className="h-5 w-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -72,13 +70,13 @@ function HeaderActionBar({ post, handleDeletePost }) {
               d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
             />
           </svg>
-        </Link>
+        </a>
         <button
           onClick={() => handleDeletePost(true)}
           className="text-red-600 hover:text-red-700"
         >
           <svg
-            className="w-5 h-5"
+            className="h-5 w-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

@@ -1,15 +1,13 @@
-import Link from "next/link";
-
 function PostFormHeader() {
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <div className="px-6 py-4 mx-auto max-w-7xl">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <Link href="/" className="text-2xl font-bold text-black">
-              Medium
-            </Link>
-            <div className="items-center hidden space-x-2 text-sm text-gray-600 md:flex">
+            <a href="/" className="text-2xl font-bold text-black">
+              Inkspace
+            </a>
+            <div className="hidden items-center space-x-2 text-sm text-gray-600 md:flex">
               <span>Draft in</span>
               <span className="font-medium">Anonymous</span>
             </div>
@@ -24,13 +22,13 @@ function PostFormHeader() {
             <button
               type="submit"
               form="post-form"
-              className="px-6 py-2 text-sm text-white bg-green-600 rounded-full hover:bg-green-700"
+              className="rounded-full bg-green-600 px-6 py-2 text-sm text-white hover:bg-green-700"
             >
               Publish
             </button>
             <button className="p-2 text-gray-600 hover:text-black">
               <svg
-                className="w-5 h-5"
+                className="h-5 w-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

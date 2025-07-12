@@ -1,4 +1,4 @@
-import FooterLinks from "@/components/footer-links";
+import Footeras from "@/components/footer-links";
 import ReadingList from "./reading-list";
 import RecommendedTopics from "./recommended-topics";
 import StaffPicks from "./staff-picks";
@@ -12,7 +12,7 @@ function Sidebar({ topics, posts }) {
         <RecommendedTopics topics={topics} />
         <WhoToFollow />
         <ReadingList posts={posts} />
-        <FooterLinks />
+        <Footeras />
       </div>
     </aside>
   );

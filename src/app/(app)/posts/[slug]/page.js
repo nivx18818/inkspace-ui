@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import Link from "next/link";
 
 import { Slide, ToastContainer } from "react-toastify";
 import ArticleHeader from "./_components/article-header";
@@ -23,7 +22,7 @@ function PostDetail() {
     const fetchPostBySlug = async (slug) => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts/${slug}`
+          `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts/${slug}`,
         );
         const res = await response.json();
         if (res.success) setPost(res.data);
@@ -38,7 +37,7 @@ function PostDetail() {
 
   if (!post) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-white">
+      <div className="flex min-h-screen items-center justify-center bg-white">
         <div className="text-center">
           <h1 className="mb-2 text-2xl font-bold text-gray-900">
             Post not found
@@ -46,12 +45,12 @@ function PostDetail() {
           <p className="text-gray-600">
             The post you&apos;re looking for doesn&apos;t exist.
           </p>
-          <Link
+          <a
             href="/"
-            className="inline-block mt-4 text-green-600 hover:text-green-700"
+            className="mt-4 inline-block text-green-600 hover:text-green-700"
           >
             ← Back to home
-          </Link>
+          </a>
         </div>
       </div>
     );
@@ -59,7 +58,7 @@ function PostDetail() {
 
   return (
     <div className="min-h-screen bg-white">
-      <article className="max-w-4xl px-6 py-12 mx-auto">
+      <article className="mx-auto max-w-4xl px-6 py-12">
         <ArticleHeader post={post} handleDeletePost={handleDeletePost} />
         <ArticleBody post={post} />
         <ArticleFooter post={post} />
@@ -86,7 +85,7 @@ function PostDetail() {
             return (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-red-500"
+                className="h-6 w-6 text-red-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

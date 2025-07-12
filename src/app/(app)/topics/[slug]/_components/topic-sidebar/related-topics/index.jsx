@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 function RelatedTopics({ topic, topics }) {
   return (
     <div className="mb-8">
@@ -10,14 +8,14 @@ function RelatedTopics({ topic, topics }) {
         {topics.map(
           (top) =>
             top.id !== topic.id && (
-              <Link
+              <a
                 key={top.id}
                 href={`/topics/${top.slug}`}
-                className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-full hover:bg-gray-200"
+                className="inline-flex items-center rounded-full bg-gray-100 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200"
               >
                 {top.title}
-              </Link>
-            )
+              </a>
+            ),
         )}
       </div>
     </div>

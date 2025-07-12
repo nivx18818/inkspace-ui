@@ -1,21 +1,19 @@
-import Link from "next/link";
-
 function PostList({ posts }) {
   return (
     <div className="space-y-8">
       {posts?.map((post, index) => (
-        <Link key={post.id} href={`/posts/${post.slug}`} className="block group">
+        <a key={post.id} href={`/posts/${post.slug}`} className="group block">
           <article>
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-400">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-400 to-pink-400">
                   <span className="text-sm font-medium text-white">
                     {(post.author || "A").charAt(0).toUpperCase()}
                   </span>
                 </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center mb-2 space-x-2">
+              <div className="min-w-0 flex-1">
+                <div className="mb-2 flex items-center space-x-2">
                   <span className="text-sm font-medium text-gray-900">
                     {post.author || "Anonymous"}
                   </span>
@@ -35,16 +33,16 @@ function PostList({ posts }) {
                   } gap-6`}
                 >
                   <div className={index % 3 === 0 ? "lg:col-span-2" : ""}>
-                    <h2 className="mb-2 text-xl font-bold text-gray-900 group-hover:text-gray-700 line-clamp-2">
+                    <h2 className="mb-2 line-clamp-2 text-xl font-bold text-gray-900 group-hover:text-gray-700">
                       {post.title}
                     </h2>
-                    <p className="mb-4 text-gray-600 line-clamp-2">
+                    <p className="mb-4 line-clamp-2 text-gray-600">
                       {post.excerpt ||
                         "Exploring the latest trends in technology and development, from AI breakthroughs to innovative coding practices that are shaping the future."}
                     </p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
-                        <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-full">
+                        <span className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
                           Technology
                         </span>
                         <span className="text-sm text-gray-500">
@@ -54,7 +52,7 @@ function PostList({ posts }) {
                       <div className="flex items-center space-x-4">
                         <button className="text-gray-400 hover:text-gray-600">
                           <svg
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -69,7 +67,7 @@ function PostList({ posts }) {
                         </button>
                         <button className="text-gray-400 hover:text-gray-600">
                           <svg
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -84,7 +82,7 @@ function PostList({ posts }) {
                         </button>
                         <button className="text-gray-400 hover:text-gray-600">
                           <svg
-                            className="w-5 h-5"
+                            className="h-5 w-5"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -102,14 +100,14 @@ function PostList({ posts }) {
                   </div>
                   {index % 3 === 0 && (
                     <div className="flex-shrink-0">
-                      <div className="w-full h-32 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500"></div>
+                      <div className="h-32 w-full rounded-lg bg-gradient-to-br from-blue-400 to-purple-500"></div>
                     </div>
                   )}
                 </div>
               </div>
             </div>
           </article>
-        </Link>
+        </a>
       ))}
     </div>
   );
