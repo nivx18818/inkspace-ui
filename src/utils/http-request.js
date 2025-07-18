@@ -1,5 +1,5 @@
 import store from "@/store";
-import { logoutThunk, refreshTokenThunk } from "@/store/thunks/auth.thunk";
+import authThunks from "@/store/thunks/auth.thunks";
 import axios from "axios";
 
 const httpRequest = axios.create({
@@ -50,7 +50,7 @@ httpRequest.interceptors.response.use(
     isRefreshing = true;
 
     try {
-      const result = await store.dispatch(refreshTokenThunk());
+      const result = await store.dispatch(authThunks.refreshToken());
 
       if (!refreshTokenThunk.fulfilled.match(result)) {
         throw new Error("Token refresh failed");
@@ -62,7 +62,7 @@ httpRequest.interceptors.response.use(
       return httpRequest(originalRequest);
     } catch (error) {
       console.error(error);
-      store.dispatch(logoutThunk());
+      store.dispatch(authThunks.logout());
 
       failedQueue.forEach(({ reject }) => {
         reject(error);
@@ -76,4 +76,4 @@ httpRequest.interceptors.response.use(
   },
 );
 
-export default httpRequest = { get, post, put, patch, del };
+export default { get, post, put, patch, del };

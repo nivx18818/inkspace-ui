@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import httpRequest from "@/utils/http-request";
 
-const meThunk = createAsyncThunk("auth/me", async (_, { rejectWithValue }) => {
+const me = createAsyncThunk("auth/me", async (_, { rejectWithValue }) => {
   try {
     const res = await httpRequest.get("/auth/me", {
       withCredentials: true,
@@ -12,7 +12,7 @@ const meThunk = createAsyncThunk("auth/me", async (_, { rejectWithValue }) => {
   }
 });
 
-const loginThunk = createAsyncThunk(
+const login = createAsyncThunk(
   "auth/login",
   async (credentials, { rejectWithValue }) => {
     try {
@@ -26,7 +26,7 @@ const loginThunk = createAsyncThunk(
   },
 );
 
-const registerThunk = createAsyncThunk(
+const register = createAsyncThunk(
   "auth/register",
   async (data, { rejectWithValue }) => {
     try {
@@ -38,7 +38,7 @@ const registerThunk = createAsyncThunk(
   },
 );
 
-const refreshTokenThunk = createAsyncThunk(
+const refreshToken = createAsyncThunk(
   "auth/refreshToken",
   async (_, { rejectWithValue }) => {
     try {
@@ -52,7 +52,7 @@ const refreshTokenThunk = createAsyncThunk(
   },
 );
 
-const logoutThunk = createAsyncThunk(
+const logout = createAsyncThunk(
   "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
@@ -66,7 +66,7 @@ const logoutThunk = createAsyncThunk(
   },
 );
 
-const checkInfoThunk = createAsyncThunk(
+const checkInfo = createAsyncThunk(
   "auth/checkInfo",
   async ({ type, value }, { rejectWithValue }) => {
     try {
@@ -78,11 +78,11 @@ const checkInfoThunk = createAsyncThunk(
   },
 );
 
-export {
-  meThunk,
-  loginThunk,
-  registerThunk,
-  refreshTokenThunk,
-  logoutThunk,
-  checkInfoThunk,
+export default {
+  me,
+  login,
+  register,
+  refreshToken,
+  logout,
+  checkInfo,
 };

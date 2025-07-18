@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export const middleware = (request) => {
   const { origin, pathname } = request.nextUrl;
-  const token = request.cookies.get("access_token")?.value;
+  const token = request.cookies.get("accessToken")?.value;
 
   // Allow public post routes: /@username/:post-slug
   const publicPostPattern = /^\/@[^\/]+\/[^\/]+$/;

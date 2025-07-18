@@ -1,17 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  checkInfoThunk,
-  loginThunk,
-  logoutThunk,
-  meThunk,
-  refreshTokenThunk,
-  registerThunk,
-} from "../thunks/auth.thunk";
+import authThunks from "../thunks/auth.thunks";
 
 const authSlice = createSlice({
   name: "auth",
   initialState: {
     user: null,
+    isAuthenticated: false,
     isLoading: false,
     error: null,
     checkResult: null,
@@ -23,80 +17,82 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // meThunk cases
-      .addCase(meThunk.pending, (state) => {
+      // me cases
+      .addCase(authThunks.me.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(meThunk.fulfilled, (state, action) => {
+      .addCase(authThunks.me.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
       })
-      .addCase(meThunk.rejected, (state, action) => {
+      .addCase(authThunks.me.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      // loginThunk cases
-      .addCase(loginThunk.pending, (state) => {
+      // login cases
+      .addCase(authThunks.login.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(loginThunk.fulfilled, (state, action) => {
+      .addCase(authThunks.login.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload;
+        state.isAuthenticated = true;
+      })
+      .addCase(authThunks.login.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+        state.isAuthenticated = false;
+      })
+      // register cases
+      .addCase(authThunks.register.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(authThunks.register.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
       })
-      .addCase(loginThunk.rejected, (state, action) => {
+      .addCase(authThunks.register.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      // registerThunk cases
-      .addCase(registerThunk.pending, (state) => {
+      // refreshToken cases
+      .addCase(authThunks.refreshToken.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(registerThunk.fulfilled, (state, action) => {
+      .addCase(authThunks.refreshToken.fulfilled, (state) => {
         state.isLoading = false;
-        state.user = action.payload;
       })
-      .addCase(registerThunk.rejected, (state, action) => {
+      .addCase(authThunks.refreshToken.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      // refreshTokenThunk cases
-      .addCase(refreshTokenThunk.pending, (state) => {
+      // logout cases
+      .addCase(authThunks.logout.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(refreshTokenThunk.fulfilled, (state) => {
-        state.isLoading = false;
-      })
-      .addCase(refreshTokenThunk.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      // logoutThunk cases
-      .addCase(logoutThunk.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(logoutThunk.fulfilled, (state) => {
+      .addCase(authThunks.logout.fulfilled, (state) => {
         state.isLoading = false;
         state.user = null;
       })
-      .addCase(logoutThunk.rejected, (state, action) => {
+      .addCase(authThunks.logout.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      // checkInfoThunk cases
-      .addCase(checkInfoThunk.pending, (state) => {
+      // checkInfo cases
+      .addCase(authThunks.checkInfo.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(checkInfoThunk.fulfilled, (state) => {
+      .addCase(authThunks.checkInfo.fulfilled, (state) => {
         state.isLoading = false;
         state.checkResult = action.payload;
       })
-      .addCase(checkInfoThunk.rejected, (state, action) => {
+      .addCase(authThunks.checkInfo.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

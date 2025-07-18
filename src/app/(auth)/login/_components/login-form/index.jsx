@@ -1,21 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import authThunks from "@/store/thunks/auth.thunks";
+import useAuth from "@/store/hooks/use-auth";
 
 function LoginForm() {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const { isAuthenticated, isLoading, error } = useAuth();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push("/");
+    }
+  }, [isAuthenticated]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      
-    } catch (error) {
-
-    }
+    const credentials = { email, password };
+    dispatch(authThunks.login(credentials));
   };
 
   return (
@@ -71,6 +79,12 @@ function LoginForm() {
       >
         {isLoading ? "Signing in..." : "Sign In"}
       </button>
+
+      {error && (
+        <div className="mt-4 text-red-600">
+          {error.message || "An error occurred. Please try again."}
+        </div>
+      )}
     </form>
   );
 }
