@@ -19,20 +19,32 @@ function PostList({ topics, posts }) {
             <div className="flex items-start space-x-3">
               {/* Author avatar */}
               <div className="flex-shrink-0">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-400">
-                  <span className="text-xs font-medium text-white">
-                    {(post.author || "A").charAt(0).toUpperCase()}
-                  </span>
-                </div>
+                <a
+                  href={`/@${post.User.username}`}
+                  target="_blank"
+                  className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-white via-blue-300 to-purple-500"
+                >
+                  {post.User.Profile.avatar ? (
+                    <img src={post.User.Profile.avatar} alt={post.User.name} />
+                  ) : (
+                    <span className="text-xs font-medium text-white">
+                      {post.User.name.charAt(0).toUpperCase()}
+                    </span>
+                  )}
+                </a>
               </div>
 
               {/* Main content */}
               <div className="min-w-0 flex-1">
                 {/* Author info */}
                 <div className="mb-3 flex items-center space-x-2">
-                  <span className="text-sm font-medium text-gray-900">
-                    {post.author || "Anonymous"}
-                  </span>
+                  <a
+                    href={`/@${post.User.username}`}
+                    target="_blank"
+                    className="text-sm font-medium text-gray-900"
+                  >
+                    {post.User.name}
+                  </a>
                   <span className="text-sm text-gray-500">·</span>
                   <span className="text-sm text-gray-500">
                     {post.createdAt
