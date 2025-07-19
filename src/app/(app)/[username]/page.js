@@ -1,15 +1,67 @@
+import httpRequest from "@/utils/http-request";
 import { notFound } from "next/navigation";
+import BasicInfo from "./_components/basic-info";
+import LocationAndJoinDate from "./_components/location-and-join-date";
+import SocialLinks from "./_components/social-links";
+import ProfileSkills from "./_components/profile-skills";
+import ProfileStats from "./_components/profile-stats";
+import RecentPosts from "./_components/recent-posts";
+
+const fetchUser = async (username) => {
+  try {
+    const res = await httpRequest.get(
+      `${process.env.BASE_API_URL}/users/${username}`,
+    );
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
 
 async function Profile({ params }) {
-  const { username } = await params;
+  const username = decodeURIComponent((await params).username);
 
   if (!username || !username.startsWith("@")) {
     notFound();
   }
 
-  const cleanUsername = username.slice(1);
+  const user = await fetchUser(username.slice(1));
 
-  return <div>Profile of @{cleanUsername}</div>;
+  if (!user) notFound();
+
+  const profile = user.Profile || {};
+  const skills = user.Skills || [];
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Cover Image Section */}
+      <div className="relative">
+        {profile.coverImage ? (
+          <div
+            className="h-64 bg-cover bg-center"
+            style={{ backgroundImage: `url(${profile.coverImage})` }}
+          >
+            <div className="bg-opacity-20 absolute inset-0 bg-black" />
+          </div>
+        ) : (
+          <div className="h-64 bg-gradient-to-r from-green-400 to-blue-500" />
+        )}
+      </div>
+
+      {/* Profile Content */}
+      <div className="relative z-10 mx-auto -mt-16 max-w-4xl px-4">
+        <div className="rounded-lg bg-white p-8 shadow-lg">
+          <BasicInfo user={user} profile={profile} />
+          <LocationAndJoinDate user={user} profile={profile} />
+          <SocialLinks profile={profile} />
+          <ProfileSkills skills={skills} />
+          <ProfileStats />
+          <RecentPosts />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Profile;
