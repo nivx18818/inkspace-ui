@@ -1,12 +1,12 @@
 function TermsAndPrivacyLayout({ children }) {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-gray-200 px-6 py-4">
         <div className="mx-auto max-w-4xl">
           <a
             href="/login"
-            className="text-2xl font-bold text-black hover:text-gray-700"
+            className="text-2xl font-bold text-foreground hover:text-gray-700"
           >
             Inkspace
           </a>

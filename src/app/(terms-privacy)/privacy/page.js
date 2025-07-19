@@ -3,7 +3,7 @@ function Privacy() {
     <div className="prose prose-lg max-w-none">
       <h1 className="mb-8 text-4xl font-bold text-gray-900">Privacy Policy</h1>
 
-      <p className="mb-8 text-gray-600">
+      <p className="mb-8 text-muted-foreground">
         <strong>Effective Date:</strong> July 12, 2025
       </p>
 

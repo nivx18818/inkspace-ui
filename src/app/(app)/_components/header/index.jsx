@@ -1,26 +1,35 @@
 function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-background">
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <a href="/" className="text-2xl font-bold text-black">
+            <a href="/" className="text-2xl font-bold text-foreground">
               Inkspace
             </a>
             <nav className="hidden items-center space-x-6 md:flex">
-              <a href="#" className="text-sm text-gray-600 hover:text-black">
+              <a
+                href="#"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 Our story
               </a>
-              <a href="#" className="text-sm text-gray-600 hover:text-black">
+              <a
+                href="#"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 Membership
               </a>
               <a
                 href="/posts/create"
-                className="text-sm text-gray-600 hover:text-black"
+                className="text-sm text-muted-foreground hover:text-foreground"
               >
                 Write
               </a>
-              <a href="#" className="text-sm text-gray-600 hover:text-black">
+              <a
+                href="#"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 Sign in
               </a>
             </nav>
@@ -29,7 +38,7 @@ function Header() {
             <button className="hidden rounded-full bg-black px-4 py-2 text-sm text-white hover:bg-gray-800 md:block">
               Get started
             </button>
-            <button className="p-2 text-gray-600 hover:text-black">
+            <button className="p-2 text-muted-foreground hover:text-foreground">
               <svg
                 className="h-5 w-5"
                 fill="none"

@@ -1,10 +1,10 @@
 function FooterActionBar() {
   return (
-    <div className="flex items-center justify-between mb-8">
+    <div className="mb-8 flex items-center justify-between">
       <div className="flex items-center space-x-4">
-        <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+        <button className="flex items-center space-x-2 text-muted-foreground hover:text-gray-900">
           <svg
-            className="w-6 h-6"
+            className="h-6 w-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -18,9 +18,9 @@ function FooterActionBar() {
           </svg>
           <span>127</span>
         </button>
-        <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+        <button className="flex items-center space-x-2 text-muted-foreground hover:text-gray-900">
           <svg
-            className="w-6 h-6"
+            className="h-6 w-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -37,9 +37,9 @@ function FooterActionBar() {
       </div>
       <div className="flex items-center space-x-3">
         <span className="text-sm text-gray-500">Share</span>
-        <button className="p-2 text-gray-600 rounded-full hover:text-gray-900 hover:bg-gray-100">
+        <button className="rounded-full p-2 text-muted-foreground hover:bg-gray-100 hover:text-gray-900">
           <svg
-            className="w-5 h-5"
+            className="h-5 w-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

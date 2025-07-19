@@ -1,7 +1,7 @@
 function LoginGetHelp() {
   return (
     <div className="mt-8 text-center">
-      <p className="text-sm text-gray-600">
+      <p className="text-sm text-muted-foreground">
         Forgot email or trouble signing in?{" "}
         <a
           href="/help"

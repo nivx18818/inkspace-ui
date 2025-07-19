@@ -7,7 +7,7 @@ function Terms() {
         Terms of Service
       </h1>
 
-      <p className="mb-8 text-gray-600">
+      <p className="mb-8 text-muted-foreground">
         <strong>Effective Date:</strong> July 12, 2025
       </p>
 

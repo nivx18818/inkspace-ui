@@ -1,13 +1,13 @@
 function PostFormHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-background">
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <a href="/" className="text-2xl font-bold text-black">
+            <a href="/" className="text-2xl font-bold text-foreground">
               Inkspace
             </a>
-            <div className="hidden items-center space-x-2 text-sm text-gray-600 md:flex">
+            <div className="hidden items-center space-x-2 text-sm text-muted-foreground md:flex">
               <span>Draft in</span>
               <span className="font-medium">Anonymous</span>
             </div>
@@ -22,11 +22,11 @@ function PostFormHeader() {
             <button
               type="submit"
               form="post-form"
-              className="rounded-full bg-green-600 px-6 py-2 text-sm text-white hover:bg-green-700"
+              className="rounded-full bg-primary px-6 py-2 text-sm text-white hover:bg-green-700"
             >
               Publish
             </button>
-            <button className="p-2 text-gray-600 hover:text-black">
+            <button className="p-2 text-muted-foreground hover:text-foreground">
               <svg
                 className="h-5 w-5"
                 fill="none"

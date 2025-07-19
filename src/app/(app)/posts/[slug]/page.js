@@ -37,12 +37,12 @@ function PostDetail() {
 
   if (!post) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-white">
+      <div className="flex min-h-screen items-center justify-center bg-background">
         <div className="text-center">
           <h1 className="mb-2 text-2xl font-bold text-gray-900">
             Post not found
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             The post you&apos;re looking for doesn&apos;t exist.
           </p>
           <a
@@ -57,7 +57,7 @@ function PostDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <article className="mx-auto max-w-4xl px-6 py-12">
         <ArticleHeader post={post} handleDeletePost={handleDeletePost} />
         <ArticleBody post={post} />

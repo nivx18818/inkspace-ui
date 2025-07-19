@@ -3,7 +3,7 @@ function HeaderActionBar({ post, handleDeletePost }) {
     <div className="flex items-center justify-between border-y border-gray-200 py-4">
       <div className="flex items-center space-x-6">
         <div className="flex items-center space-x-4">
-          <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+          <button className="flex items-center space-x-2 text-muted-foreground hover:text-gray-900">
             <svg
               className="h-5 w-5"
               fill="none"
@@ -19,7 +19,7 @@ function HeaderActionBar({ post, handleDeletePost }) {
             </svg>
             <span className="text-sm">127</span>
           </button>
-          <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900">
+          <button className="flex items-center space-x-2 text-muted-foreground hover:text-gray-900">
             <svg
               className="h-5 w-5"
               fill="none"
@@ -38,7 +38,7 @@ function HeaderActionBar({ post, handleDeletePost }) {
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <button className="text-gray-600 hover:text-gray-900">
+        <button className="text-muted-foreground hover:text-gray-900">
           <svg
             className="h-5 w-5"
             fill="none"
@@ -55,7 +55,7 @@ function HeaderActionBar({ post, handleDeletePost }) {
         </button>
         <a
           href={`/posts/${post.slug}/edit`}
-          className="text-gray-600 hover:text-gray-900"
+          className="text-muted-foreground hover:text-gray-900"
         >
           <svg
             className="h-5 w-5"
