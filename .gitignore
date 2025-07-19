@@ -21,6 +21,7 @@
 /build
 
 # misc
+.github
 .vscode
 .DS_Store
 *.pem
