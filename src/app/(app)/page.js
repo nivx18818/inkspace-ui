@@ -1,7 +1,5 @@
-
 import PostList from "@/components/post-list";
 import Sidebar from "./_components/sidebar";
-import TopicsBar from "./_components/topics-bar";
 
 const fetchTopics = async () => {
   try {
@@ -32,19 +30,15 @@ async function Home() {
   const posts = await fetchPosts();
 
   return (
-    <>
-      <TopicsBar topics={topics} />
+    <div className="mx-auto max-w-7xl px-6 py-8">
+      <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
+        <main className="lg:col-span-2">
+          <PostList topics={topics} posts={posts} />
+        </main>
 
-      <div className="px-6 py-8 mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
-          <main className="lg:col-span-2">
-            <PostList posts={posts} />
-          </main>
-
-          <Sidebar topics={topics} posts={posts} />
-        </div>
+        <Sidebar topics={topics} posts={posts} />
       </div>
-    </>
+    </div>
   );
 }
 
