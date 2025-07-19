@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 
 import { Slide, ToastContainer } from "react-toastify";
 import ArticleHeader from "./_components/article-header";
@@ -35,26 +35,7 @@ function PostDetail() {
     fetchPostBySlug(slug);
   }, [slug]);
 
-  if (!post) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
-        <div className="text-center">
-          <h1 className="mb-2 text-2xl font-bold text-gray-900">
-            Post not found
-          </h1>
-          <p className="text-muted-foreground">
-            The post you&apos;re looking for doesn&apos;t exist.
-          </p>
-          <a
-            href="/"
-            className="mt-4 inline-block text-green-600 hover:text-green-700"
-          >
-            ← Back to home
-          </a>
-        </div>
-      </div>
-    );
-  }
+  if (!post) notFound();
 
   return (
     <div className="min-h-screen bg-background">
