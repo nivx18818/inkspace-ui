@@ -21,7 +21,6 @@ function PostList({ topics, posts }) {
               <div className="flex-shrink-0">
                 <a
                   href={`/@${post.User.username}`}
-                  target="_blank"
                   className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-white via-blue-300 to-purple-500"
                 >
                   {post.User.Profile.avatar ? (
@@ -40,7 +39,6 @@ function PostList({ topics, posts }) {
                 <div className="mb-3 flex items-center space-x-2">
                   <a
                     href={`/@${post.User.username}`}
-                    target="_blank"
                     className="text-sm font-medium text-gray-900"
                   >
                     {post.User.name}
