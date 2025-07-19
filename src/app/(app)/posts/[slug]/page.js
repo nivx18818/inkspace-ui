@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { notFound, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 
 import Toaster from "@/components/toaster";
 import ArticleHeader from "./_components/article-header";
 import ArticleBody from "./_components/article-body";
 import ArticleFooter from "./_components/article-footer";
 import DeletePostModal from "./_components/delete-post-modal";
+import Link from "next/link";
+import CommentsSection from "./_components/comments-section";
 
 function PostDetail() {
   const { slug } = useParams();
@@ -35,15 +37,36 @@ function PostDetail() {
     fetchPostBySlug(slug);
   }, [slug]);
 
-  if (!post) notFound();
+  if (!post) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <div className="text-center">
+          <h1 className="mb-2 text-2xl font-bold text-foreground">
+            Post not found
+          </h1>
+          <p className="text-muted-foreground">
+            The post you&apos;re looking for doesn&apos;t exist.
+          </p>
+          <Link
+            href="/"
+            className="mt-4 inline-block text-primary hover:text-green-700"
+          >
+            ← Back to home
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-background">
-      <article className="mx-auto max-w-4xl px-6 py-12">
+    <div className="mx-auto max-w-4xl px-6 py-12">
+      <article>
         <ArticleHeader post={post} handleDeletePost={handleDeletePost} />
         <ArticleBody post={post} />
         <ArticleFooter post={post} />
       </article>
+
+      <CommentsSection comments={post.Comments} />
 
       {isDeleting && <DeletePostModal handleDeletePost={handleDeletePost} />}
 
