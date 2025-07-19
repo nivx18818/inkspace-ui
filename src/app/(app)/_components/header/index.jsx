@@ -53,22 +53,16 @@ function Header() {
             </a>
             <nav className="hidden items-center space-x-6 md:flex">
               <a
-                href="#"
+                href="/about"
                 className="text-sm text-muted-foreground hover:text-foreground"
               >
                 Our story
               </a>
               <a
-                href="#"
+                href="/membership"
                 className="text-sm text-muted-foreground hover:text-foreground"
               >
                 Membership
-              </a>
-              <a
-                href="#"
-                className="text-sm text-muted-foreground hover:text-foreground"
-              >
-                Sign in
               </a>
             </nav>
           </div>
