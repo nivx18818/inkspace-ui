@@ -6,7 +6,7 @@ const me = createAsyncThunk("auth/me", async (_, { rejectWithValue }) => {
     const res = await httpRequest.get("/auth/me", {
       withCredentials: true,
     });
-    return res.ok;
+    return res.data;
   } catch (error) {
     return rejectWithValue(error.response?.message ?? "Failed to fetch user");
   }

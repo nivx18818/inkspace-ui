@@ -36,12 +36,16 @@ httpRequest.interceptors.response.use(
     const originalRequest = error.config;
     const shouldRenewToken = error.response?.status === 401;
 
-    if (!shouldRenewToken || originalRequest._retry) {
+    if (
+      !shouldRenewToken ||
+      originalRequest._retry ||
+      originalRequest.url?.includes("/auth/refresh-token")
+    ) {
       return Promise.reject(error);
     }
 
     if (isRefreshing) {
-      return new Promise((resolve) => {
+      return new Promise((resolve, reject) => {
         failedQueue.push({ resolve, reject, config: originalRequest });
       });
     }
@@ -52,7 +56,7 @@ httpRequest.interceptors.response.use(
     try {
       const result = await store.dispatch(authThunks.refreshToken());
 
-      if (!refreshTokenThunk.fulfilled.match(result)) {
+      if (authThunks.refreshToken.rejected.match(result)) {
         throw new Error("Token refresh failed");
       }
 

@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 
 export const middleware = (request) => {
   const { origin, pathname } = request.nextUrl;
-  const token = request.cookies.get("accessToken")?.value;
+  const accessToken = request.cookies.get("accessToken")?.value;
+  const refreshToken = request.cookies.get("refreshToken")?.value;
 
   // Allow public post routes: /@username/:post-slug
   const publicPostPattern = /^\/@[^\/]+\/[^\/]+$/;
@@ -17,7 +18,8 @@ export const middleware = (request) => {
   if (
     !publicPostPattern.test(pathname) &&
     !publicPaths.includes(pathname) &&
-    !token
+    !accessToken &&
+    !refreshToken
   ) {
     return NextResponse.redirect(`${origin}/login`);
   }
