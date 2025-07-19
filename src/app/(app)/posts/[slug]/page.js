@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import postService from "@/services/post.service";
 
+import Link from "next/link";
 import Toaster from "@/components/toaster";
 import ArticleHeader from "./_components/article-header";
 import ArticleBody from "./_components/article-body";
 import ArticleFooter from "./_components/article-footer";
 import DeletePostModal from "./_components/delete-post-modal";
-import Link from "next/link";
 import CommentsSection from "./_components/comments-section";
 
 function PostDetail() {
@@ -22,17 +23,8 @@ function PostDetail() {
 
   useEffect(() => {
     const fetchPostBySlug = async (slug) => {
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts/${slug}`,
-        );
-        const res = await response.json();
-        if (res.success) setPost(res.data);
-        else throw new Error(res.message ?? "An error occurred");
-      } catch (error) {
-        console.error(error);
-        setPost(null);
-      }
+      const post = await postService.getBySlug(slug);
+      setPost(post);
     };
     fetchPostBySlug(slug);
   }, [slug]);

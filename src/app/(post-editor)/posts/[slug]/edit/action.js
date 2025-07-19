@@ -11,13 +11,16 @@ export const updatePost = async (formData) => {
   const data = Object.fromEntries(formData.entries());
 
   try {
-    const response = await fetch(`${process.env.BASE_API_URL}/posts/${slug}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts/${slug}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       },
-      body: JSON.stringify(data),
-    });
+    );
 
     if (!response.ok) {
       throw new Error("Failed to update post");

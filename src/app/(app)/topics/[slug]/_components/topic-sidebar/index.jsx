@@ -5,7 +5,9 @@ import FooterLinks from "@/components/footer-links";
 
 const fetchTopics = async () => {
   try {
-    const response = await fetch(`${process.env.BASE_API_URL}/topics`);
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_URL}/topics`,
+    );
     const res = await response.json();
     if (res.success) return res.data;
     throw new Error(res.message ?? "An error occurred");

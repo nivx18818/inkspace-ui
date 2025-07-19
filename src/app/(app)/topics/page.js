@@ -1,19 +1,8 @@
 import TopicCard from "./_components/topic-card";
-
-const fetchTopics = async () => {
-  try {
-    const response = await fetch(`${process.env.BASE_API_URL}/topics`);
-    const res = await response.json();
-    if (res.success) return res.data;
-    throw new Error(res.message ?? "An error occurred");
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
+import topicService from "@/services/topic.service";
 
 async function Topics() {
-  const topics = await fetchTopics();
+  const topics = await topicService.getAll();
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-8">

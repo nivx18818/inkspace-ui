@@ -1,39 +1,16 @@
+import topicService from "@/services/topic.service";
+
+import Link from "next/link";
 import PostList from "@/components/post-list";
 import FilterTabs from "./_components/filter-tabs";
 import TopicHeroSection from "./_components/topic-hero-section";
 import TopicSidebar from "./_components/topic-sidebar";
-import Link from "next/link";
 
-const fetchTopicBySlug = async (slug) => {
-  try {
-    const response = await fetch(`${process.env.BASE_API_URL}/topics/${slug}`);
-    const res = await response.json();
-    if (res.success) return res.data;
-    throw new Error(res.message ?? "An error occurred");
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
-
-const fetchPostsByTopic = async (topicSlug) => {
-  try {
-    const response = await fetch(
-      `${process.env.BASE_API_URL}/topics/${topicSlug}/posts`,
-    );
-    const res = await response.json();
-    if (res.success) return res.data;
-    throw new Error(res.message ?? "An error occurred");
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
 
 async function TopicDetail({ params }) {
   const { slug } = await params;
-  const topic = await fetchTopicBySlug(slug);
-  const posts = await fetchPostsByTopic(slug);
+  const topic = await topicService.getBySlug(slug);
+  const posts = topic.Posts;
 
   if (!topic) {
     return (

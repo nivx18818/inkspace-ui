@@ -14,10 +14,12 @@ const request = async (method, url, data, config) => {
       data,
       ...config,
     });
-    return res.data;
+
+    if (res.data.success) return res.data.data;
+    throw new Error(res.data.message);
   } catch (error) {
     console.error(error);
-    throw error;
+    return null;
   }
 };
 

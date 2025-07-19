@@ -1,23 +1,12 @@
-import httpRequest from "@/utils/http-request";
 import { notFound } from "next/navigation";
+import userService from "@/services/user.service";
+
 import BasicInfo from "./_components/basic-info";
 import LocationAndJoinDate from "./_components/location-and-join-date";
 import SocialLinks from "./_components/social-links";
 import ProfileSkills from "./_components/profile-skills";
 import ProfileStats from "./_components/profile-stats";
 import RecentPosts from "./_components/recent-posts";
-
-const fetchUser = async (username) => {
-  try {
-    const res = await httpRequest.get(
-      `${process.env.BASE_API_URL}/users/${username}`,
-    );
-    return res.data;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
 
 async function Profile({ params }) {
   const username = decodeURIComponent((await params).username);
@@ -26,8 +15,7 @@ async function Profile({ params }) {
     notFound();
   }
 
-  const user = await fetchUser(username.slice(1));
-
+  const user = await userService.getByUsername(username.slice(1));
   if (!user) notFound();
 
   const profile = user.Profile || {};

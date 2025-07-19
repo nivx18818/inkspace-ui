@@ -6,13 +6,16 @@ import { headers } from "next/headers";
 export const createPost = async (formData) => {
   try {
     const data = Object.fromEntries(formData.entries());
-    const response = await fetch(`${process.env.BASE_API_URL}/posts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       },
-      body: JSON.stringify(data),
-    });
+    );
 
     if (!response.ok) {
       return { success: false, error: "Failed to create post" };
