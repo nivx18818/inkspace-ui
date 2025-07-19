@@ -27,7 +27,7 @@ function ReadingList({ posts }) {
       </div>
       <a
         href="#"
-        className="mt-3 inline-block text-sm text-green-600 hover:text-green-700"
+        className="mt-3 inline-block text-sm text-primary hover:text-green-700"
       >
         See all (12)
       </a>

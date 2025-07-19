@@ -23,7 +23,7 @@ function AuthorBio({ post }) {
           <div className="flex items-center space-x-4 text-sm text-gray-500">
             <span>42 Followers</span>
             <span>·</span>
-            <a href="#" className="text-green-600 hover:text-green-700">
+            <a href="#" className="text-primary hover:text-green-700">
               View all posts
             </a>
           </div>

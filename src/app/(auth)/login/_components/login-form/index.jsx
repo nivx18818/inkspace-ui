@@ -65,7 +65,7 @@ function LoginForm() {
         <div className="mt-2 text-right">
           <a
             href="/forgot-password"
-            className="text-sm text-green-600 hover:text-green-700"
+            className="text-sm text-primary hover:text-green-700"
           >
             Forgot password?
           </a>

@@ -47,7 +47,7 @@ async function TopicDetail({ params }) {
           </p>
           <Link
             href="/"
-            className="mt-4 inline-block text-green-600 hover:text-green-700"
+            className="mt-4 inline-block text-primary hover:text-green-700"
           >
             ← Back to home
           </Link>

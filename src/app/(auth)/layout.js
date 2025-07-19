@@ -9,7 +9,7 @@ function AuthLayout({ children }) {
             <span className="text-muted-foreground">No account? </span>
             <a
               href="/signup"
-              className="font-medium text-green-600 hover:text-green-700"
+              className="font-medium text-primary hover:text-green-700"
             >
               Create one
             </a>

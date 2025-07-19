@@ -15,7 +15,7 @@ function PostFormHeader() {
           <div className="flex items-center space-x-4">
             <button
               type="button"
-              className="px-4 py-2 text-sm text-green-600 hover:text-green-700"
+              className="px-4 py-2 text-sm text-primary hover:text-green-700"
             >
               Save draft
             </button>

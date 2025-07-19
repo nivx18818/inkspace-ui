@@ -10,15 +10,15 @@ function FeaturedWriter({ topic }) {
             <div key={author} className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div
-                  className={`w-8 h-8 bg-gradient-to-br ${
+                  className={`h-8 w-8 bg-gradient-to-br ${
                     index === 0
                       ? "from-pink-400 to-red-500"
                       : index === 1
-                      ? "from-blue-400 to-indigo-500"
-                      : index === 2
-                      ? "from-yellow-400 to-orange-500"
-                      : "from-green-400 to-teal-500"
-                  } rounded-full flex items-center justify-center`}
+                        ? "from-blue-400 to-indigo-500"
+                        : index === 2
+                          ? "from-yellow-400 to-orange-500"
+                          : "from-green-400 to-teal-500"
+                  } flex items-center justify-center rounded-full`}
                 >
                   <span className="text-xs font-medium text-white">
                     {author.charAt(0)}
@@ -33,11 +33,11 @@ function FeaturedWriter({ topic }) {
                   </div>
                 </div>
               </div>
-              <button className="px-3 py-1 text-sm text-green-600 border border-green-600 rounded-full hover:bg-green-50">
+              <button className="rounded-full border border-primary px-3 py-1 text-sm text-primary hover:bg-green-50">
                 Follow
               </button>
             </div>
-          )
+          ),
         )}
       </div>
     </div>

@@ -96,7 +96,7 @@ function Terms() {
             Your privacy is important to us. Please review our{" "}
             <a
               href="/privacy"
-              className="text-green-600 underline hover:text-green-700"
+              className="text-primary underline hover:text-green-700"
             >
               Privacy Policy
             </a>

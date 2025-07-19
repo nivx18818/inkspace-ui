@@ -15,12 +15,12 @@ function DeletePostModal({ handleDeletePost }) {
         `${process.env.NEXT_PUBLIC_BASE_API_URL}/posts/${slug}`,
         {
           method: "DELETE",
-        }
+        },
       );
       if (response.ok) router.push("/");
       const res = await response.json();
       throw new Error(
-        res.message ?? "An error occurred while deleting the post"
+        res.message ?? "An error occurred while deleting the post",
       );
     } catch (error) {
       console.error(error);
@@ -31,19 +31,19 @@ function DeletePostModal({ handleDeletePost }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 text-gray-800">
-      <div className="p-6 bg-white rounded shadow-lg">
+      <div className="rounded bg-background p-6 shadow-lg">
         <h2 className="mb-4 text-xl font-semibold">Delete Post</h2>
         <p className="mb-4">Are you sure you want to delete this post?</p>
         <div className="flex justify-end space-x-4">
           <button
             onClick={handleCancel}
-            className="px-4 py-2 text-gray-800 bg-gray-300 rounded hover:bg-gray-400"
+            className="rounded bg-gray-300 px-4 py-2 text-gray-800 hover:bg-gray-400"
           >
             Cancel
           </button>
           <button
             onClick={handleConfirm}
-            className="px-4 py-2 text-white bg-red-600 rounded hover:bg-red-700"
+            className="rounded bg-destructive px-4 py-2 text-white hover:bg-red-700"
           >
             Confirm
           </button>

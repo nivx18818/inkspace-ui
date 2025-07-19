@@ -1,7 +1,7 @@
 function WhoToFollow() {
   return (
     <div className="mb-8">
-      <h3 className="text-sm font-semibold text-gray-900 mb-4">
+      <h3 className="mb-4 text-sm font-semibold text-gray-900">
         Who to follow
       </h3>
       <div className="space-y-4">
@@ -9,13 +9,13 @@ function WhoToFollow() {
           <div key={author} className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div
-                className={`w-8 h-8 bg-gradient-to-br ${
+                className={`h-8 w-8 bg-gradient-to-br ${
                   index === 0
                     ? "from-pink-400 to-red-500"
                     : index === 1
-                    ? "from-blue-400 to-indigo-500"
-                    : "from-yellow-400 to-orange-500"
-                } rounded-full flex items-center justify-center`}
+                      ? "from-blue-400 to-indigo-500"
+                      : "from-yellow-400 to-orange-500"
+                } flex items-center justify-center rounded-full`}
               >
                 <span className="text-xs font-medium text-white">
                   {author.charAt(0)}
@@ -30,7 +30,7 @@ function WhoToFollow() {
                 </div>
               </div>
             </div>
-            <button className="px-3 py-1 text-sm text-green-600 border border-green-600 rounded-full hover:bg-green-50">
+            <button className="rounded-full border border-primary px-3 py-1 text-sm text-primary hover:bg-green-50">
               Follow
             </button>
           </div>
@@ -38,7 +38,7 @@ function WhoToFollow() {
       </div>
       <a
         href="#"
-        className="inline-block mt-3 text-sm text-green-600 hover:text-green-700"
+        className="mt-3 inline-block text-sm text-primary hover:text-green-700"
       >
         See more suggestions
       </a>
