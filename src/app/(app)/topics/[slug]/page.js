@@ -2,6 +2,7 @@ import PostList from "@/components/post-list";
 import FilterTabs from "./_components/filter-tabs";
 import TopicHeroSection from "./_components/topic-hero-section";
 import TopicSidebar from "./_components/topic-sidebar";
+import Link from "next/link";
 
 const fetchTopicBySlug = async (slug) => {
   try {
@@ -36,27 +37,27 @@ async function TopicDetail({ params }) {
 
   if (!topic) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-white">
+      <div className="flex min-h-screen items-center justify-center bg-background">
         <div className="text-center">
           <h1 className="mb-2 text-2xl font-bold text-gray-900">
             Topic not found
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             The topic you&apos;re looking for doesn&apos;t exist.
           </p>
-          <a
+          <Link
             href="/"
             className="mt-4 inline-block text-green-600 hover:text-green-700"
           >
             ← Back to home
-          </a>
+          </Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <TopicHeroSection topic={topic} posts={posts} />
       <FilterTabs />
 
