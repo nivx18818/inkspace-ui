@@ -1,8 +1,8 @@
 import httpRequest from "@/utils/http-request";
 
 const getByUsername = async (username) => {
-  const user = await httpRequest.get(`/users/${username}`);
-  return user;
+  const res = await httpRequest.get(`/users/${username}`);
+  return res;
 };
 
 export default { getByUsername };

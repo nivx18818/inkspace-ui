@@ -1,13 +1,15 @@
 import httpRequest from "@/utils/http-request";
 
 const getAll = async () => {
-  const topics = await httpRequest.get("/topics");
-  return topics;
+  const res = await httpRequest.get("/topics");
+  if (res.error) console.error(res.error);
+  return res.data;
 };
 
 const getBySlug = async (slug) => {
-  const topic = await httpRequest.get(`/topics/${slug}`);
-  return topic;
+  const res = await httpRequest.get(`/topics/${slug}`);
+  if (res.error) console.error(res.error);
+  return res.data;
 };
 
 export default { getAll, getBySlug };

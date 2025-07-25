@@ -15,11 +15,23 @@ const request = async (method, url, data, config) => {
       ...config,
     });
 
-    if (res.data.success) return res.data.data;
-    throw new Error(res.data.message);
+    if (res.status == 204) {
+      return { data: { success: true }, error: null };
+    }
+
+    const response = res.data;
+
+    if (response.success) {
+      return { data: response.data, error: null };
+    }
+
+    throw new Error(response.message);
   } catch (error) {
     console.error(error);
-    return null;
+    return {
+      data: null,
+      error: error.response?.message ?? error.message,
+    };
   }
 };
 
