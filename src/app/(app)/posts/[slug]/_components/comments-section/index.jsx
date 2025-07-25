@@ -1,10 +1,27 @@
-import CommentItem from "./comment-item";
+"use client";
 
-function CommentsSection({ comments }) {
+import { useState } from "react";
+import CommentItem from "./comment-item";
+import CommentInput from "./comment-input";
+
+function CommentsSection({ initialComments }) {
+  const [comments, setComments] = useState(() =>
+    [...(initialComments ?? [])].reverse(),
+  );
+  console.log(comments);
+
+  const handleAddComment = (comment) => {
+    const newComments = [comment, ...comments];
+    setComments(newComments);
+  };
+
   if (!comments || comments.length === 0) {
     return (
       <div className="mt-12 border-t pt-8">
         <h3 className="mb-6 text-2xl font-bold text-gray-900">Comments</h3>
+
+        <CommentInput placeholder="Be the first to share your thoughts!" />
+
         <div className="py-12 text-center text-gray-500">
           <p>No comments yet. Be the first to share your thoughts!</p>
         </div>
@@ -17,6 +34,8 @@ function CommentsSection({ comments }) {
       <h3 className="mb-6 text-2xl font-bold text-gray-900">
         Comments ({comments.length})
       </h3>
+
+      <CommentInput handleAddComment={handleAddComment} />
 
       <div className="space-y-6">
         {comments.map((comment, index) => (

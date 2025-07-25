@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReply, faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -6,7 +8,7 @@ import ReplyItem from "./reply-item";
 function CommentItem({ comment }) {
   const user = comment.User;
   const profile = user?.Profile || {};
-  const replies = comment.Replies || [];
+  const replies = [...(comment.Replies || [])].reverse();
 
   return (
     <div className="group">

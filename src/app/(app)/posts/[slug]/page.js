@@ -15,6 +15,7 @@ import CommentsSection from "./_components/comments-section";
 function PostDetail() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
+  const [isFetching, setIsFetching] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDeletePost = (status) => {
@@ -22,12 +23,16 @@ function PostDetail() {
   };
 
   useEffect(() => {
-    const fetchPostBySlug = async (slug) => {
+    const fetchPost = async () => {
+      setIsFetching(true);
       const post = await postService.getBySlug(slug);
       setPost(post);
+      setIsFetching(false);
     };
-    fetchPostBySlug(slug);
+    fetchPost();
   }, [slug]);
+
+  if (isFetching) return null;
 
   if (!post) {
     return (
@@ -58,7 +63,7 @@ function PostDetail() {
         <ArticleFooter post={post} />
       </article>
 
-      <CommentsSection comments={post.Comments} />
+      <CommentsSection initialComments={post.Comments} />
 
       {isDeleting && <DeletePostModal handleDeletePost={handleDeletePost} />}
 
