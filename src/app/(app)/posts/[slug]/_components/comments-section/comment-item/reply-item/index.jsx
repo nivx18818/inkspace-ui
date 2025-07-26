@@ -22,7 +22,7 @@ function ReplyItem({ reply }) {
       <div className="min-w-0 flex-1">
         {/* User Info */}
         <div className="mb-1 flex items-center gap-2">
-          <h5 className="text-sm font-medium text-gray-900">{user?.name}</h5>
+          <h5 className="text-sm font-medium text-foreground">{user?.name}</h5>
           <span className="text-xs text-gray-500">@{user?.username}</span>
           <span className="text-xs text-gray-400">•</span>
           <time className="text-xs text-gray-500">1h ago</time>

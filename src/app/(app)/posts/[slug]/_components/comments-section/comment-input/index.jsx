@@ -14,6 +14,7 @@ function CommentInput({ handleAddComment }) {
   const [comment, setComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const user = useCurrentUser();
+  const maxCommentLen = 1000;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,11 +79,19 @@ function CommentInput({ handleAddComment }) {
             <div className="relative">
               <textarea
                 value={comment}
-                onChange={(e) => setComment(e.target.value)}
+                onChange={(e) =>
+                  setComment(e.target.value.slice(0, maxCommentLen))
+                }
                 placeholder="What's on your mind?"
                 rows={3}
-                className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 pr-12 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+                className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 pr-12 text-foreground placeholder-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
                 disabled={isSubmitting}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    e.target.form.requestSubmit();
+                  }
+                }}
               />
 
               {/* Submit Button */}
@@ -97,8 +106,12 @@ function CommentInput({ handleAddComment }) {
 
             {/* Character Count or Helper Text */}
             <div className="mt-2 flex justify-between text-sm text-gray-500">
-              <span>Press Enter + Shift for new line</span>
-              <span>{comment.length}/1000</span>
+              <span>
+                Press <code>Shift + Enter</code> for new line
+              </span>
+              <span>
+                {comment.length}/{maxCommentLen}
+              </span>
             </div>
           </div>
         </div>

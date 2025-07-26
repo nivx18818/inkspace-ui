@@ -17,8 +17,8 @@ function CommentsSection({ initialComments }) {
 
   if (!comments || comments.length === 0) {
     return (
-      <div className="mt-12 border-t pt-8">
-        <h3 className="mb-6 text-2xl font-bold text-gray-900">Comments</h3>
+      <div className="mt-12 border-t border-gray-200 pt-8">
+        <h3 className="mb-6 text-2xl font-bold text-foreground">Comments</h3>
 
         <CommentInput placeholder="Be the first to share your thoughts!" />
 
@@ -30,8 +30,11 @@ function CommentsSection({ initialComments }) {
   }
 
   return (
-    <div className="mt-12 border-t pt-8">
-      <h3 className="mb-6 text-2xl font-bold text-gray-900">
+    <div
+      id="comments-section"
+      className="mt-12 scroll-m-20 border-t border-gray-200 pt-8"
+    >
+      <h3 className="mb-6 text-2xl font-bold text-foreground">
         Comments ({comments.length})
       </h3>
 

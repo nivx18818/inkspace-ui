@@ -1,9 +1,14 @@
 "use client";
 
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReply, faHeart } from "@fortawesome/free-solid-svg-icons";
 import ReplyItem from "./reply-item";
+
+dayjs.extend(relativeTime);
 
 function CommentItem({ comment }) {
   const user = comment.User;
@@ -33,15 +38,14 @@ function CommentItem({ comment }) {
           <div className="mb-1 flex items-center gap-2">
             <a
               href={`/@${user.username}`}
-              className="font-medium text-gray-900"
+              className="font-medium text-foreground"
             >
               {user?.name}
             </a>
-            <a href={`/@${user.username}`} className="text-sm text-gray-500">
-              @{user?.username}
-            </a>
             <span className="text-sm text-gray-400">•</span>
-            <time className="text-sm text-gray-500">2h ago</time>
+            <time className="text-sm text-gray-500">
+              {dayjs(comment.createdAt).fromNow()}
+            </time>
           </div>
 
           {/* Comment Text */}
