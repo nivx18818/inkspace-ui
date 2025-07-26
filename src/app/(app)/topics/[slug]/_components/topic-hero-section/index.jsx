@@ -11,7 +11,7 @@ function TopicHeroSection({ topic, posts }) {
               ← Back to home
             </a>
           </div>
-          <h1 className="mb-6 text-5xl font-bold text-gray-900 md:text-6xl">
+          <h1 className="mb-6 text-5xl font-bold text-foreground md:text-6xl">
             {topic.title}
           </h1>
           <p className="mb-8 max-w-2xl text-xl text-muted-foreground">

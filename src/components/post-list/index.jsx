@@ -39,7 +39,7 @@ function PostList({ topics, posts }) {
                 <div className="mb-3 flex items-center space-x-2">
                   <a
                     href={`/@${post.User.username}`}
-                    className="text-sm font-medium text-gray-900"
+                    className="text-sm font-medium text-foreground"
                   >
                     {post.User.name}
                   </a>
@@ -58,7 +58,7 @@ function PostList({ topics, posts }) {
                 <div className="flex items-start justify-between">
                   <div className="flex-1 pr-4">
                     <a href={`/posts/${post.slug}`} className="group block">
-                      <h2 className="mb-2 text-xl leading-tight font-bold text-gray-900 group-hover:text-gray-700">
+                      <h2 className="mb-2 text-xl leading-tight font-bold text-foreground group-hover:text-gray-700">
                         {post.title}
                       </h2>
                       <p className="mb-4 line-clamp-2 text-base text-muted-foreground">

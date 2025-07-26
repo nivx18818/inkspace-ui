@@ -1,12 +1,14 @@
 function ReadingList({ posts }) {
   return (
     <div className="mb-8">
-      <h3 className="mb-4 text-sm font-semibold text-gray-900">Reading list</h3>
+      <h3 className="mb-4 text-sm font-semibold text-foreground">
+        Reading list
+      </h3>
       <div className="space-y-3">
         {posts?.slice(3, 6).map((post) => (
           <div key={post.id} className="group cursor-pointer">
             <a href={`/posts/${post.slug}`}>
-              <h4 className="line-clamp-2 text-sm font-medium text-gray-900 group-hover:text-gray-700">
+              <h4 className="line-clamp-2 text-sm font-medium text-foreground group-hover:text-gray-700">
                 {post.title}
               </h4>
             </a>

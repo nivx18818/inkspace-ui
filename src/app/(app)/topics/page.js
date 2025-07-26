@@ -8,7 +8,7 @@ async function Topics() {
     <div className="mx-auto max-w-7xl px-6 py-8">
       {/* Hero Section */}
       <div className="mb-16 text-center">
-        <h1 className="mb-4 text-5xl font-bold text-gray-900 md:text-6xl">
+        <h1 className="mb-4 text-5xl font-bold text-foreground md:text-6xl">
           Explore topics
         </h1>
         <p className="mx-auto max-w-2xl text-xl text-gray-600">
@@ -45,7 +45,7 @@ async function Topics() {
 
       {/* All Topics */}
       <section>
-        <h2 className="mb-8 text-3xl font-bold text-gray-900">All topics</h2>
+        <h2 className="mb-8 text-3xl font-bold text-foreground">All topics</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {topics.map((topic) => (
             <TopicCard key={topic.id} topic={topic} />

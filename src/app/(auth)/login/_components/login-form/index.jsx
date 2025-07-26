@@ -42,7 +42,7 @@ function LoginForm() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
           required
-          className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:ring-2 focus:ring-black focus:outline-none"
+          className="w-full rounded-md border border-gray-300 px-4 py-3 text-foreground placeholder-gray-500 focus:border-transparent focus:ring-2 focus:ring-black focus:outline-none"
         />
       </div>
 
@@ -60,7 +60,7 @@ function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter your password"
           required
-          className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:ring-2 focus:ring-black focus:outline-none"
+          className="w-full rounded-md border border-gray-300 px-4 py-3 text-foreground placeholder-gray-500 focus:border-transparent focus:ring-2 focus:ring-black focus:outline-none"
         />
         <div className="mt-2 text-right">
           <a

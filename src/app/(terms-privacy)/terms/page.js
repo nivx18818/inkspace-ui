@@ -3,7 +3,7 @@ import React from "react";
 function Terms() {
   return (
     <div className="prose prose-lg max-w-none">
-      <h1 className="mb-8 text-4xl font-bold text-gray-900">
+      <h1 className="mb-8 text-4xl font-bold text-foreground">
         Terms of Service
       </h1>
 
@@ -13,7 +13,7 @@ function Terms() {
 
       <div className="space-y-8">
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             1. Acceptance of Terms
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -25,7 +25,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             2. Description of Service
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -42,7 +42,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             3. User Accounts
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -59,10 +59,10 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             4. Content Policy
           </h2>
-          <h3 className="mb-3 text-xl font-semibold text-gray-900">
+          <h3 className="mb-3 text-xl font-semibold text-foreground">
             Your Content
           </h3>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -72,7 +72,7 @@ function Terms() {
             platform.
           </p>
 
-          <h3 className="mb-3 text-xl font-semibold text-gray-900">
+          <h3 className="mb-3 text-xl font-semibold text-foreground">
             Prohibited Content
           </h3>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -89,7 +89,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             5. Privacy and Data
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -106,7 +106,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             6. Acceptable Use
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -123,7 +123,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             7. Intellectual Property
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -135,7 +135,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             8. Termination
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -147,7 +147,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             9. Disclaimers
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -159,7 +159,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             10. Limitation of Liability
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -171,7 +171,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             11. Changes to Terms
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -183,7 +183,7 @@ function Terms() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             12. Contact Information
           </h2>
           <p className="leading-relaxed text-gray-700">

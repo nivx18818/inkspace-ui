@@ -1,7 +1,9 @@
 function Privacy() {
   return (
     <div className="prose prose-lg max-w-none">
-      <h1 className="mb-8 text-4xl font-bold text-gray-900">Privacy Policy</h1>
+      <h1 className="mb-8 text-4xl font-bold text-foreground">
+        Privacy Policy
+      </h1>
 
       <p className="mb-8 text-muted-foreground">
         <strong>Effective Date:</strong> July 12, 2025
@@ -9,7 +11,7 @@ function Privacy() {
 
       <div className="space-y-8">
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             1. Introduction
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -21,11 +23,11 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             2. Information We Collect
           </h2>
 
-          <h3 className="mb-3 text-xl font-semibold text-gray-900">
+          <h3 className="mb-3 text-xl font-semibold text-foreground">
             Information You Provide
           </h3>
           <ul className="mb-4 list-disc space-y-2 pl-6 text-gray-700">
@@ -47,7 +49,7 @@ function Privacy() {
             </li>
           </ul>
 
-          <h3 className="mb-3 text-xl font-semibold text-gray-900">
+          <h3 className="mb-3 text-xl font-semibold text-foreground">
             Information We Collect Automatically
           </h3>
           <ul className="list-disc space-y-2 pl-6 text-gray-700">
@@ -71,7 +73,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             3. How We Use Your Information
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -91,11 +93,11 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             4. Information Sharing and Disclosure
           </h2>
 
-          <h3 className="mb-3 text-xl font-semibold text-gray-900">
+          <h3 className="mb-3 text-xl font-semibold text-foreground">
             Public Information
           </h3>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -104,7 +106,7 @@ function Privacy() {
             engines.
           </p>
 
-          <h3 className="mb-3 text-xl font-semibold text-gray-900">
+          <h3 className="mb-3 text-xl font-semibold text-foreground">
             Third-Party Sharing
           </h3>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -135,7 +137,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             5. Data Security
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -152,7 +154,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             6. Your Privacy Rights
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -186,7 +188,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             7. Cookies and Tracking Technologies
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">
@@ -206,7 +208,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             8. Data Retention
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -219,7 +221,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             9. International Data Transfers
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -231,7 +233,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             10. Children&apos;s Privacy
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -243,7 +245,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             11. Third-Party Links
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -255,7 +257,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             12. Changes to This Privacy Policy
           </h2>
           <p className="leading-relaxed text-gray-700">
@@ -267,7 +269,7 @@ function Privacy() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">
             13. Contact Us
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">

@@ -16,7 +16,9 @@ function SocialLinks({ profile }) {
         profile.linkedin ||
         profile.facebook) && (
         <div className="mb-8">
-          <h3 className="mb-4 text-lg font-semibold text-gray-900">Connect</h3>
+          <h3 className="mb-4 text-lg font-semibold text-foreground">
+            Connect
+          </h3>
           <div className="flex flex-wrap gap-3">
             {profile.website && (
               <a

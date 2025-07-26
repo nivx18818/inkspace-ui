@@ -12,7 +12,7 @@ function TopicCard({ topic }) {
             </span>
           </div>
         </div>
-        <h3 className="mb-2 text-lg font-semibold text-gray-900 group-hover:text-primary">
+        <h3 className="mb-2 text-lg font-semibold text-foreground group-hover:text-primary">
           {topic.name}
         </h3>
         <p className="mb-4 line-clamp-2 text-sm text-gray-600">

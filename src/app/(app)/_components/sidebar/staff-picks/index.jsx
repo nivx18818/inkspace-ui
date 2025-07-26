@@ -1,7 +1,9 @@
 function StaffPicks({ posts }) {
   return (
     <div className="mb-8">
-      <h3 className="mb-4 text-sm font-semibold text-gray-900">Staff Picks</h3>
+      <h3 className="mb-4 text-sm font-semibold text-foreground">
+        Staff Picks
+      </h3>
       <div className="space-y-6">
         {posts?.slice(0, 3).map((post) => (
           <a
@@ -17,15 +19,15 @@ function StaffPicks({ posts }) {
               </div>
               <div className="min-w-0 flex-1">
                 <div className="mb-1 flex items-center space-x-1">
-                  <span className="text-sm font-medium text-gray-900">
+                  <span className="text-sm font-medium text-foreground">
                     {post.author || "Anonymous"}
                   </span>
                   <span className="text-sm text-gray-500">in</span>
-                  <span className="text-sm font-medium text-gray-900">
+                  <span className="text-sm font-medium text-foreground">
                     Technology
                   </span>
                 </div>
-                <h4 className="mb-1 line-clamp-2 text-sm font-semibold text-gray-900 group-hover:text-gray-700">
+                <h4 className="mb-1 line-clamp-2 text-sm font-semibold text-foreground group-hover:text-gray-700">
                   {post.title}
                 </h4>
                 <div className="flex items-center space-x-2 text-xs text-gray-500">

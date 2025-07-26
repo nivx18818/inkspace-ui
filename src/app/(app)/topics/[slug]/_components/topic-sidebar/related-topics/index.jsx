@@ -1,7 +1,7 @@
 function RelatedTopics({ topic, topics }) {
   return (
     <div className="mb-8">
-      <h3 className="mb-4 text-sm font-semibold text-gray-900">
+      <h3 className="mb-4 text-sm font-semibold text-foreground">
         Related topics
       </h3>
       <div className="flex flex-wrap gap-2">

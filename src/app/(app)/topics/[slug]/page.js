@@ -6,7 +6,6 @@ import FilterTabs from "./_components/filter-tabs";
 import TopicHeroSection from "./_components/topic-hero-section";
 import TopicSidebar from "./_components/topic-sidebar";
 
-
 async function TopicDetail({ params }) {
   const { slug } = await params;
   const topic = await topicService.getBySlug(slug);
@@ -16,7 +15,7 @@ async function TopicDetail({ params }) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background">
         <div className="text-center">
-          <h1 className="mb-2 text-2xl font-bold text-gray-900">
+          <h1 className="mb-2 text-2xl font-bold text-foreground">
             Topic not found
           </h1>
           <p className="text-muted-foreground">

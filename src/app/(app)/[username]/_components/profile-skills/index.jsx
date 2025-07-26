@@ -3,7 +3,7 @@ function ProfileSkills({ skills }) {
     <>
       {skills.length > 0 && (
         <div className="mb-8">
-          <h3 className="mb-4 text-lg font-semibold text-gray-900">Skills</h3>
+          <h3 className="mb-4 text-lg font-semibold text-foreground">Skills</h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill, index) => (
               <span

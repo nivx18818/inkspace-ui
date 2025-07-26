@@ -1,7 +1,7 @@
 function WhoToFollow() {
   return (
     <div className="mb-8">
-      <h3 className="mb-4 text-sm font-semibold text-gray-900">
+      <h3 className="mb-4 text-sm font-semibold text-foreground">
         Who to follow
       </h3>
       <div className="space-y-4">
@@ -22,7 +22,7 @@ function WhoToFollow() {
                 </span>
               </div>
               <div>
-                <div className="text-sm font-medium text-gray-900">
+                <div className="text-sm font-medium text-foreground">
                   {author}
                 </div>
                 <div className="text-xs text-gray-500">

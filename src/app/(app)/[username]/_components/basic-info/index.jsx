@@ -17,7 +17,7 @@ function BasicInfo({ user, profile }) {
       </div>
 
       <div className="flex-1">
-        <h1 className="mb-2 text-3xl font-bold text-gray-900">{user.name}</h1>
+        <h1 className="mb-2 text-3xl font-bold text-foreground">{user.name}</h1>
         <p className="mb-2 text-xl text-gray-600">@{user.username}</p>
         {profile.title && (
           <p className="mb-3 text-lg text-gray-700">{profile.title}</p>
