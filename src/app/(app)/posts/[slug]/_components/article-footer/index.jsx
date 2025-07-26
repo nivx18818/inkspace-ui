@@ -1,36 +1,78 @@
+"use client";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComment, faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faComment } from "@fortawesome/free-regular-svg-icons";
+import {
+  faHandsClapping,
+  faShareNodes,
+} from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
+import clsx from "clsx";
+import useCurrentUser from "@/store/hooks/user-current-user";
+import postService from "@/services/post.service";
+import { useState } from "react";
 
 function ArticleFooter({ post }) {
+  const user = useCurrentUser();
+  const [likeCount, setLikeCount] = useState(post.Likes.length);
+  const [liked, setLiked] = useState(post.Likes.some((u) => u.id === user.id));
+
+  const handleLikePost = async () => {
+    const res = !liked
+      ? await postService.like(post.slug)
+      : await postService.unlike(post.slug);
+
+    if (res.error) {
+      toast.error(res.error);
+    } else {
+      setLiked(!liked);
+      setLikeCount(!liked ? likeCount + 1 : likeCount - 1);
+    }
+  };
+
+  const handleScrollToCommentsSection = () => {
+    document
+      .getElementById("comments-section")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleShare = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      toast.success("Copied post URL to clipboard!");
+    } catch (err) {
+      toast.error("Failed to copy URL.");
+    }
+  };
+
   return (
     <footer className="mt-16 border-t border-gray-200 pt-8">
       <div className="mb-8 flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <button className="flex items-center space-x-2 text-muted-foreground hover:text-gray-900">
-            <FontAwesomeIcon icon={faHeart} />
-            <span>{post.Likes.length}</span>
+          <button
+            className={clsx(
+              "flex items-center space-x-2 hover:text-foreground",
+              liked ? "text-foreground" : "text-muted-foreground",
+            )}
+            onClick={handleLikePost}
+          >
+            <FontAwesomeIcon icon={faHandsClapping} />
+            <span>{likeCount}</span>
           </button>
-          <button className="flex items-center space-x-2 text-muted-foreground hover:text-gray-900">
+          <button
+            className="flex items-center space-x-2 text-muted-foreground hover:text-foreground"
+            onClick={handleScrollToCommentsSection}
+          >
             <FontAwesomeIcon icon={faComment} />
             <span>{post.Comments.length}</span>
           </button>
         </div>
         <div className="flex items-center space-x-3">
-          <span className="text-sm text-gray-500">Share</span>
-          <button className="rounded-full p-2 text-muted-foreground hover:bg-gray-100 hover:text-gray-900">
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
-              />
-            </svg>
+          <button
+            className="text-muted-foreground hover:text-foreground"
+            onClick={handleShare}
+          >
+            <FontAwesomeIcon icon={faShareNodes} />
           </button>
         </div>
       </div>

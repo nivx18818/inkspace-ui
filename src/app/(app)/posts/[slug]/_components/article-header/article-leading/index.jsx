@@ -1,7 +1,7 @@
 function ArticleLeading({ post }) {
   return (
     <>
-      <h1 className="mb-6 text-4xl leading-tight font-bold text-gray-900 md:text-5xl">
+      <h1 className="mb-6 text-4xl leading-tight font-bold text-foreground md:text-5xl">
         {post.title}
       </h1>
 
@@ -13,7 +13,7 @@ function ArticleLeading({ post }) {
         </div>
         <div className="flex-1">
           <div className="mb-1 flex items-center space-x-2">
-            <span className="font-medium text-gray-900">
+            <span className="font-medium text-foreground">
               {post.author || "Anonymous"}
             </span>
             <button className="text-sm text-primary hover:text-green-700">

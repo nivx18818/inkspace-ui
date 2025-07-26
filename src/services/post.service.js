@@ -12,4 +12,18 @@ const getBySlug = async (slug) => {
   return res.data;
 };
 
-export default { getAll, getBySlug };
+const like = async (slug) => {
+  const res = await httpRequest.post(`/posts/${slug}/like`, null, {
+    withCredentials: true,
+  });
+  return res;
+};
+
+const unlike = async (slug) => {
+  const res = await httpRequest.post(`/posts/${slug}/unlike`, null, {
+    withCredentials: true,
+  });
+  return res;
+};
+
+export default { getAll, getBySlug, like, unlike };

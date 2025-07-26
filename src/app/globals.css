@@ -54,6 +54,14 @@
     --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
         0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+
+    --toastify-color-success: theme("colors.green.50");
+    --toastify-text-color-success: theme("colors.green.700");
+    --toastify-color-error: theme("colors.red.50");
+    --toastify-text-color-error: theme("colors.red.700");
+    --toastify-toast-width: fit-content;
+    --toastify-toast-min-height: fit-content;
+    --toastify-toast-padding: 10px;
 }
 
 @theme inline {
