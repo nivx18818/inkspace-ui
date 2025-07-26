@@ -1,4 +1,8 @@
+import readingTime from "reading-time";
+
 function ArticleLeading({ post }) {
+  const user = post.User;
+
   return (
     <>
       <h1 className="mb-6 text-4xl leading-tight font-bold text-foreground md:text-5xl">
@@ -6,32 +10,30 @@ function ArticleLeading({ post }) {
       </h1>
 
       <div className="mb-8 flex items-center space-x-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-400 to-pink-400">
-          <span className="text-lg font-medium text-white">
-            {(post.author || "A").charAt(0).toUpperCase()}
-          </span>
-        </div>
+        <img
+          className="h-12 w-12 rounded-full"
+          src={user?.Profile?.avatar}
+          alt={user.name}
+        />
         <div className="flex-1">
           <div className="mb-1 flex items-center space-x-2">
-            <span className="font-medium text-foreground">
-              {post.author || "Anonymous"}
-            </span>
+            <a className="font-medium text-foreground">
+              {user.name || "Anonymous"}
+            </a>
             <button className="text-sm text-primary hover:text-green-700">
               Follow
             </button>
           </div>
           <div className="flex items-center space-x-2 text-sm text-gray-500">
             <span>
-              {post.createdAt
-                ? new Date(post.createdAt).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })
-                : "December 25, 2023"}
+              {new Date(post.createdAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </span>
             <span>·</span>
-            <span>8 min read</span>
+            <span>{readingTime(post.content).text}</span>
           </div>
         </div>
       </div>
