@@ -1,8 +1,7 @@
 import PostForm from "../_components/post-form";
-import { createPost } from "./action";
 
 function CreatePostForm() {
-  return <PostForm formAction={createPost} />;
+  return <PostForm />;
 }
 
 export default CreatePostForm;

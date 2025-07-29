@@ -12,10 +12,10 @@ const SwitchButton = ({ currentView, handleToggle }) => {
       title={isPreview ? "Switch to Edit" : "Switch to Preview"}
       onClick={handleToggle}
       className={clsx(
-        "fixed right-8 bottom-8 z-50 h-14 w-14 rounded-full shadow-lg transition-all duration-200 hover:scale-105",
+        "fixed right-8 bottom-8 z-50 h-14 w-14 rounded-full shadow-lg transition-all duration-200",
         "flex items-center justify-center border border-gray-200",
         isPreview
-          ? "hover:bg-primary-hover bg-primary text-white"
+          ? "bg-primary text-white hover:bg-primary-hover"
           : "bg-white text-muted-foreground hover:bg-gray-50",
       )}
       style={{

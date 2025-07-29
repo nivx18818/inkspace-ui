@@ -54,7 +54,7 @@ function CommentItem({ comment }) {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4 text-sm">
+          {/* <div className="flex items-center gap-4 text-sm">
             <button className="flex items-center gap-1 text-gray-500 transition-colors hover:text-gray-700">
               <FontAwesomeIcon icon={faReply} className="h-4 w-4" />
               <span>Reply</span>
@@ -64,7 +64,7 @@ function CommentItem({ comment }) {
               <FontAwesomeIcon icon={faHeart} className="h-4 w-4" />
               <span>Like</span>
             </button>
-          </div>
+          </div> */}
 
           {/* Replies */}
           {replies.length > 0 && (
