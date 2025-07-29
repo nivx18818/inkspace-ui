@@ -6,10 +6,10 @@ function NotFound() {
       <div className="mx-auto max-w-md px-6 text-center">
         <h1 className="mb-4 text-6xl font-light text-gray-800">404</h1>
         <h2 className="mb-6 text-2xl font-light text-gray-700">
-          User not found
+          Page not found
         </h2>
         <p className="mb-8 leading-relaxed text-gray-600">
-          The user you&apos;re looking for doesn&apos;t exist.
+          The page you&apos;re looking for doesn&apos;t exist.
         </p>
         <Link
           href="/"
