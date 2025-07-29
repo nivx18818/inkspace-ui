@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function AuthLayout({ children }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -7,12 +9,12 @@ function AuthLayout({ children }) {
           <h1 className="text-2xl font-bold text-foreground">Inkspace</h1>
           <div className="text-sm">
             <span className="text-muted-foreground">No account? </span>
-            <a
+            <Link
               href="/signup"
               className="font-medium text-primary hover:text-green-700"
             >
               Create one
-            </a>
+            </Link>
           </div>
         </div>
       </header>
