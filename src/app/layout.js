@@ -6,6 +6,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Toaster from "@/components/toaster";
 
 config.autoAddCss = false;
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
           <ReduxProvider>
             <UserFetching />
             {children}
+            <Toaster />
           </ReduxProvider>
         </div>
       </body>
