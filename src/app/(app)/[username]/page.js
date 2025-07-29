@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import userService from "@/services/user.service";
+import { userService } from "@/services";
 
 import BasicInfo from "./_components/basic-info";
 import LocationAndJoinDate from "./_components/location-and-join-date";

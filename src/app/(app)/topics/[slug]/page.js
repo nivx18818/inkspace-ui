@@ -1,4 +1,4 @@
-import topicService from "@/services/topic.service";
+import { topicService } from "@/services";
 
 import Link from "next/link";
 import PostList from "@/components/post-list";

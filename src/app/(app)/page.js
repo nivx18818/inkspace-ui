@@ -1,7 +1,6 @@
 import PostList from "@/components/post-list";
 import Sidebar from "./_components/sidebar";
-import topicService from "@/services/topic.service";
-import postService from "@/services/post.service";
+import { topicService, postService } from "@/services";
 
 async function Home() {
   const topics = await topicService.getAll();

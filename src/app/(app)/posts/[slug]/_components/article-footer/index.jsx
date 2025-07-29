@@ -9,7 +9,7 @@ import {
 import { toast } from "react-toastify";
 import clsx from "clsx";
 import useCurrentUser from "@/store/hooks/user-current-user";
-import postService from "@/services/post.service";
+import { postService } from "@/services";
 import { useState } from "react";
 
 function ArticleFooter({ post }) {
@@ -23,7 +23,7 @@ function ArticleFooter({ post }) {
       : await postService.unlike(post.slug);
 
     if (res.error) {
-      toast.error(res.error);
+      toast.error(res.error.message);
     } else {
       setLiked(!liked);
       setLikeCount(!liked ? likeCount + 1 : likeCount - 1);

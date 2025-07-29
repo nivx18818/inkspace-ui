@@ -1,5 +1,5 @@
 import TopicCard from "./_components/topic-card";
-import topicService from "@/services/topic.service";
+import { topicService } from "@/services";
 
 async function Topics() {
   const topics = await topicService.getAll();

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import postService from "@/services/post.service";
+import { postService } from "@/services";
 
 import Link from "next/link";
 import Toaster from "@/components/toaster";
@@ -66,8 +66,6 @@ function PostDetail() {
       <CommentsSection initialComments={post.Comments} />
 
       {isDeleting && <DeletePostModal handleDeletePost={handleDeletePost} />}
-
-      <Toaster />
     </div>
   );
 }

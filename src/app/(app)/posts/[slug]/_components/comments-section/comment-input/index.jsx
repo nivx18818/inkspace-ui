@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import useCurrentUser from "@/store/hooks/user-current-user";
-import commentService from "@/services/comment.service";
+import { commentService } from "@/services";
 
 function CommentInput({ handleAddComment }) {
   const params = useParams();
