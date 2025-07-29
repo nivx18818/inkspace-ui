@@ -20,17 +20,15 @@ const request = async (method, url, data, config) => {
     }
 
     const response = res.data;
-
-    if (response.success) {
-      return { data: response.data, error: null };
-    }
-
-    throw new Error(response.message);
+    return { data: response.data, error: null };
   } catch (error) {
     console.error(error);
     return {
       data: null,
-      error: error.response?.message ?? error.message,
+      error: {
+        message: error.response?.data?.message ?? error.message,
+        details: error.response?.data?.details,
+      },
     };
   }
 };
