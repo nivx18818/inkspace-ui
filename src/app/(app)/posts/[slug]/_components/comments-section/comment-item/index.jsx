@@ -11,9 +11,9 @@ import ReplyItem from "./reply-item";
 dayjs.extend(relativeTime);
 
 function CommentItem({ comment }) {
-  const user = comment.User;
-  const profile = user?.Profile || {};
-  const replies = [...(comment.Replies || [])].reverse();
+  const user = comment.user;
+  const profile = user?.profile || {};
+  const replies = [...(comment.replies || [])].reverse();
 
   return (
     <div className="group">

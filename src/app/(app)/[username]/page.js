@@ -18,8 +18,8 @@ async function Profile({ params }) {
   const user = await userService.getByUsername(username.slice(1));
   if (!user) notFound();
 
-  const profile = user.Profile || {};
-  const skills = user.Skills || [];
+  const profile = user.profile || {};
+  const skills = user.skills || [];
 
   return (
     <div className="min-h-screen bg-white">

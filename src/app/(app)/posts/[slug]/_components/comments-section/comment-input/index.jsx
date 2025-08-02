@@ -54,7 +54,7 @@ function CommentInput({ handleAddComment }) {
     );
   }
 
-  const profile = user?.Profile || {};
+  const profile = user?.profile || {};
 
   return (
     <div className="mb-6">

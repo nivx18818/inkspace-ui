@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import useCurrentUser from "@/store/hooks/user-current-user";
+import authThunks from "@/store/thunks/auth.thunks";
 
 function UserMenu() {
   const dispatch = useDispatch();
@@ -42,8 +43,8 @@ function UserMenu() {
   };
 
   const getDefaultAvatar = () => {
-    if (user?.Profile?.avatar) {
-      return user.Profile.avatar;
+    if (user?.profile?.avatar) {
+      return user.profile.avatar;
     }
 
     // Create a default avatar with user initials or generic avatar

@@ -63,7 +63,7 @@ function PostDetail() {
         <ArticleFooter post={post} />
       </article>
 
-      <CommentsSection initialComments={post.Comments} />
+      <CommentsSection initialComments={post.comments} />
 
       {isDeleting && <DeletePostModal handleDeletePost={handleDeletePost} />}
     </div>

@@ -1,6 +1,6 @@
 function ReplyItem({ reply }) {
-  const user = reply.User;
-  const profile = user?.Profile || {};
+  const user = reply.user;
+  const profile = user?.profile || {};
 
   return (
     <div className="flex gap-3">

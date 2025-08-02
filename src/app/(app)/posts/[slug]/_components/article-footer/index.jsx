@@ -14,8 +14,8 @@ import { useState } from "react";
 
 function ArticleFooter({ post }) {
   const user = useCurrentUser();
-  const [likeCount, setLikeCount] = useState(post.Likes.length);
-  const [liked, setLiked] = useState(post.Likes.some((u) => u.id === user.id));
+  const [likeCount, setLikeCount] = useState(post.likes.length);
+  const [liked, setLiked] = useState(post.likes.some((u) => u.id === user.id));
 
   const handleLikePost = async () => {
     const res = !liked
@@ -64,7 +64,7 @@ function ArticleFooter({ post }) {
             onClick={handleScrollToCommentsSection}
           >
             <FontAwesomeIcon icon={faComment} />
-            <span>{post.Comments.length}</span>
+            <span>{post.comments.length}</span>
           </button>
         </div>
         <div className="flex items-center space-x-3">

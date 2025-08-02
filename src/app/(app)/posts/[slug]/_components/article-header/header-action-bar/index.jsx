@@ -20,11 +20,11 @@ function HeaderActionBar({ post, handleDeletePost }) {
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2 text-muted-foreground">
             <FontAwesomeIcon icon={faHandsClapping} />
-            <span className="text-sm">{post.Likes.length}</span>
+            <span className="text-sm">{post.likes.length}</span>
           </div>
           <div className="flex items-center space-x-2 text-muted-foreground">
             <FontAwesomeIcon icon={faComment} />
-            <span className="text-sm">{post.Comments.length}</span>
+            <span className="text-sm">{post.comments.length}</span>
           </div>
         </div>
       </div>

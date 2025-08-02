@@ -1,7 +1,7 @@
 import readingTime from "reading-time";
 
 function ArticleLeading({ post }) {
-  const user = post.User;
+  const user = post.user;
 
   return (
     <>
@@ -12,7 +12,7 @@ function ArticleLeading({ post }) {
       <div className="mb-8 flex items-center space-x-4">
         <img
           className="h-12 w-12 rounded-full"
-          src={user?.Profile?.avatar}
+          src={user?.profile?.avatar}
           alt={user.name}
         />
         <div className="flex-1">

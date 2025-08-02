@@ -20,14 +20,14 @@ function PostList({ topics, posts }) {
               {/* Author avatar */}
               <div className="flex-shrink-0">
                 <a
-                  href={`/@${post.User.username}`}
+                  href={`/@${post.user.username}`}
                   className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-white via-blue-300 to-purple-500"
                 >
-                  {post.User.Profile.avatar ? (
-                    <img src={post.User.Profile.avatar} alt={post.User.name} />
+                  {post.user.profile.avatar ? (
+                    <img src={post.user.profile.avatar} alt={post.user.name} />
                   ) : (
                     <span className="text-xs font-medium text-white">
-                      {post.User.name.charAt(0).toUpperCase()}
+                      {post.user.name.charAt(0).toUpperCase()}
                     </span>
                   )}
                 </a>
@@ -38,10 +38,10 @@ function PostList({ topics, posts }) {
                 {/* Author info */}
                 <div className="mb-3 flex items-center space-x-2">
                   <a
-                    href={`/@${post.User.username}`}
+                    href={`/@${post.user.username}`}
                     className="text-sm font-medium text-foreground"
                   >
-                    {post.User.name}
+                    {post.user.name}
                   </a>
                   <span className="text-sm text-gray-500">·</span>
                   <span className="text-sm text-gray-500">
