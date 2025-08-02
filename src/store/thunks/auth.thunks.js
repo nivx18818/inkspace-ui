@@ -6,7 +6,7 @@ const me = createAsyncThunk("auth/me", async (_, { rejectWithValue }) => {
     withCredentials: true,
   });
   if (res.data) return res.data;
-  return rejectWithValue(res.error.message);
+  return rejectWithValue(res.error);
 });
 
 const login = createAsyncThunk(
@@ -16,7 +16,7 @@ const login = createAsyncThunk(
       withCredentials: true,
     });
     if (res.data.success) return true;
-    return rejectWithValue(res.error.message);
+    return rejectWithValue(res.error);
   },
 );
 
@@ -25,7 +25,7 @@ const register = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     const res = await httpRequest.post("/auth/register", data);
     if (res.data.success) return true;
-    return rejectWithValue(res.error.message);
+    return rejectWithValue(res.error);
   },
 );
 
@@ -36,7 +36,7 @@ const refreshToken = createAsyncThunk(
       withCredentials: true,
     });
     if (res.data.success) return true;
-    return rejectWithValue(res.error.message);
+    return rejectWithValue(res.error);
   },
 );
 
@@ -47,7 +47,7 @@ const logout = createAsyncThunk(
       withCredentials: true,
     });
     if (res.data.success) return true;
-    return rejectWithValue(res.error.message);
+    return rejectWithValue(res.error);
   },
 );
 
@@ -56,7 +56,7 @@ const checkInfo = createAsyncThunk(
   async ({ type, value }, { rejectWithValue }) => {
     const res = await httpRequest.get(`/auth/check-${type}?${type}=${value}`);
     if (res.data) return res.data.exists;
-    return rejectWithValue(res.error.message);
+    return rejectWithValue(res.error);
   },
 );
 
