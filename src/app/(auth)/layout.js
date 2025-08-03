@@ -4,19 +4,10 @@ function AuthLayout({ children }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       {/* Header */}
-      <header className="border-b border-gray-200 px-6 py-4">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <h1 className="text-2xl font-bold text-foreground">Inkspace</h1>
-          <div className="text-sm">
-            <span className="text-muted-foreground">No account? </span>
-            <Link
-              href="/signup"
-              className="font-medium text-primary hover:text-green-700"
-            >
-              Create one
-            </Link>
-          </div>
-        </div>
+      <header className="fixed px-6 py-4">
+        <Link href="/" className="text-2xl font-bold text-foreground">
+          Inkspace
+        </Link>
       </header>
 
       {/* Main Content */}
