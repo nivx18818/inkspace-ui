@@ -5,7 +5,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState: {
     user: null,
-    isAuthenticated: false,
+    success: false,
     isLoading: false,
     error: null,
     checkResult: null,
@@ -32,29 +32,33 @@ const authSlice = createSlice({
       .addCase(authThunks.login.pending, (state) => {
         state.isLoading = true;
         state.error = null;
+        state.success = false;
       })
       .addCase(authThunks.login.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
-        state.isAuthenticated = true;
+        state.success = true;
       })
       .addCase(authThunks.login.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-        state.isAuthenticated = false;
+        state.success = false;
       })
       // register cases
       .addCase(authThunks.register.pending, (state) => {
         state.isLoading = true;
         state.error = null;
+        state.success = false;
       })
       .addCase(authThunks.register.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
+        state.success = true;
       })
       .addCase(authThunks.register.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state.success = false;
       })
       // refreshToken cases
       .addCase(authThunks.refreshToken.pending, (state) => {
@@ -73,7 +77,7 @@ const authSlice = createSlice({
       .addCase(authThunks.logout.fulfilled, (state) => {
         state.isLoading = false;
         state.user = null;
-        state.isAuthenticated = false;
+        state.success = false;
       })
       .addCase(authThunks.logout.rejected, (state, action) => {
         state.isLoading = false;

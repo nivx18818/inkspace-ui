@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
+import Link from "next/link";
 import authThunks from "@/store/thunks/auth.thunks";
 import useAuth from "@/store/hooks/use-auth";
 
@@ -12,13 +13,13 @@ function LoginForm() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isAuthenticated, isLoading, error } = useAuth();
+  const { success, isLoading, error } = useAuth();
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (success) {
       router.push("/");
     }
-  }, [isAuthenticated]);
+  }, [success]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -85,6 +86,18 @@ function LoginForm() {
           {error.message || "An error occurred. Please try again."}
         </div>
       )}
+
+      <div className="text-center">
+        <span className="text-sm text-muted-foreground">
+          Don't have an account?{" "}
+          <Link
+            href="/register"
+            className="text-primary hover:text-primary-hover"
+          >
+            Register
+          </Link>
+        </span>
+      </div>
     </form>
   );
 }
