@@ -7,17 +7,22 @@ export const middleware = (request) => {
 
   // Allow public post routes: /@username/:post-slug
   const publicPostPattern = /^\/@[^\/]+\/[^\/]+$/;
-  const publicPaths = [
+  const authPaths = [
     "/login",
     "/register",
+    "/email-sent",
     "/forgot-password",
     "/reset-password",
     "/verify-email",
   ];
 
+  if (authPaths.includes(pathname) && (accessToken || refreshToken)) {
+    return NextResponse.redirect(origin);
+  }
+
   if (
     !publicPostPattern.test(pathname) &&
-    !publicPaths.includes(pathname) &&
+    !authPaths.includes(pathname) &&
     !accessToken &&
     !refreshToken
   ) {
