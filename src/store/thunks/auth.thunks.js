@@ -1,15 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import httpRequest from "@/utils/http-request";
 
-const me = createAsyncThunk("auth/me", async (_, { rejectWithValue }) => {
-  const res = await httpRequest.get("/auth/me", {
-    withCredentials: true,
-  });
-  if (res.data) return res.data;
-  return rejectWithValue(res.error);
-});
+export const me = createAsyncThunk(
+  "auth/me",
+  async (_, { rejectWithValue }) => {
+    const res = await httpRequest.get("/auth/me", {
+      withCredentials: true,
+    });
+    if (res.data) return res.data;
+    return rejectWithValue(res.error);
+  },
+);
 
-const login = createAsyncThunk(
+export const login = createAsyncThunk(
   "auth/login",
   async (credentials, { rejectWithValue }) => {
     const res = await httpRequest.post("/auth/login", credentials, {
@@ -20,7 +23,7 @@ const login = createAsyncThunk(
   },
 );
 
-const register = createAsyncThunk(
+export const register = createAsyncThunk(
   "auth/register",
   async (data, { rejectWithValue }) => {
     const res = await httpRequest.post("/auth/register", data);
@@ -29,7 +32,7 @@ const register = createAsyncThunk(
   },
 );
 
-const refreshToken = createAsyncThunk(
+export const refreshToken = createAsyncThunk(
   "auth/refreshToken",
   async (_, { rejectWithValue }) => {
     const res = await httpRequest.post("/auth/refresh-token", null, {
@@ -40,7 +43,7 @@ const refreshToken = createAsyncThunk(
   },
 );
 
-const logout = createAsyncThunk(
+export const logout = createAsyncThunk(
   "auth/logout",
   async (_, { rejectWithValue }) => {
     const res = await httpRequest.post("/auth/logout", null, {

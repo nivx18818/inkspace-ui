@@ -1,5 +1,5 @@
 import store from "@/store";
-import authThunks from "@/store/thunks/auth.thunks";
+import { authThunks } from "@/store/thunks";
 import axios from "axios";
 
 const httpRequest = axios.create({

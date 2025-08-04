@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import useCurrentUser from "@/store/hooks/user-current-user";
-import authThunks from "@/store/thunks/auth.thunks";
+import { authThunks } from "@/store/thunks";
 
 function UserMenu() {
   const dispatch = useDispatch();

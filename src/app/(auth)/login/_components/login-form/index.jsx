@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
-import authThunks from "@/store/thunks/auth.thunks";
+import { authThunks } from "@/store/thunks";
 import useAuth from "@/store/hooks/use-auth";
 
 function LoginForm() {

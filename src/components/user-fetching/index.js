@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import authThunks from "@/store/thunks/auth.thunks";
+import { authThunks } from "@/store/thunks";
 import useAuth from "@/store/hooks/use-auth";
 
 function UserFetching() {
