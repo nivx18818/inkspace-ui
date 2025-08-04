@@ -64,12 +64,12 @@ function LoginForm() {
           className="w-full rounded-md border border-gray-300 px-4 py-3 text-foreground placeholder-gray-500 focus:border-transparent focus:ring-2 focus:ring-black focus:outline-none"
         />
         <div className="mt-2 text-right">
-          <a
+          <Link
             href="/forgot-password"
             className="text-sm text-primary hover:text-green-700"
           >
             Forgot password?
-          </a>
+          </Link>
         </div>
       </div>
 
