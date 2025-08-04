@@ -1,8 +1,8 @@
-function RegisterTrailing() {
+function AuthTrailing() {
   return (
     <div className="mt-8 border-t border-gray-200 pt-6">
       <p className="text-center text-xs leading-relaxed text-gray-500">
-        By creating an account, you agree to Inkspace&apos;s{" "}
+        By continuing, you agree to Inkspace&apos;s{" "}
         <a
           href="/terms"
           className="underline hover:text-gray-700"
@@ -24,4 +24,4 @@ function RegisterTrailing() {
   );
 }
 
-export default RegisterTrailing;
+export default AuthTrailing;
