@@ -19,7 +19,9 @@ function RegisterForm() {
 
   useEffect(() => {
     if (success) {
-      router.push("/email-sent?type=register");
+      router.replace(
+        `/email-sent?type=register&email=${encodeURIComponent(email)}`,
+      );
     }
   }, [success]);
 

@@ -54,7 +54,16 @@ export const logout = createAsyncThunk(
   },
 );
 
-const checkInfo = createAsyncThunk(
+export const forgotPassword = createAsyncThunk(
+  "auth/forgotPassword",
+  async (email, { rejectWithValue }) => {
+    const res = await httpRequest.post("/auth/forgot-password", { email });
+    if (res.data.success) return true;
+    return rejectWithValue(res.error);
+  },
+);
+
+export const checkInfo = createAsyncThunk(
   "auth/checkInfo",
   async ({ type, value }, { rejectWithValue }) => {
     const res = await httpRequest.get(`/auth/check-${type}?${type}=${value}`);
@@ -63,11 +72,20 @@ const checkInfo = createAsyncThunk(
   },
 );
 
-export default {
-  me,
-  login,
-  register,
-  refreshToken,
-  logout,
-  checkInfo,
-};
+export const resendVerification = createAsyncThunk(
+  "auth/resendVerification",
+  async (email, { rejectWithValue }) => {
+    const res = await httpRequest.post("/auth/resend-verification", { email });
+    if (res.data.success) return true;
+    return rejectWithValue(res.error);
+  },
+);
+
+export const resendReset = createAsyncThunk(
+  "auth/resendReset",
+  async (email, { rejectWithValue }) => {
+    const res = await httpRequest.post("/auth/resend-reset", { email });
+    if (res.data.success) return true;
+    return rejectWithValue(res.error);
+  },
+);

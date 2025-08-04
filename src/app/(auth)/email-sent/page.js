@@ -1,26 +1,42 @@
+"use client";
+
+import { useSearchParams } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { authThunks } from "@/store/thunks";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-async function EmailSent({ searchParams }) {
-  const { type } = await searchParams;
-  const messages = {
-    register:
-      "Registration successful! Please check your email to verify your account.",
-    reset: "Password reset email sent! Please check your inbox.",
+function EmailSent() {
+  const dispatch = useDispatch();
+  const searchParams = useSearchParams();
+  const { type, email: encodedEmail } = Object.fromEntries(
+    searchParams.entries(),
+  );
+  const email = encodedEmail ? decodeURIComponent(encodedEmail) : "your email";
+
+  const actions = {
+    register: {
+      title: "Registration successful",
+      message: `A confirmation email has been sent to ${email}. Please check your inbox to verify your account.`,
+      run: () => dispatch(authThunks.resendVerification(email)),
+    },
+    reset: {
+      title: "Password reset link sent",
+      message: `A password reset link has been sent to ${email}. Please check your inbox.`,
+      run: () => dispatch(authThunks.resendReset(email)),
+    },
   };
 
-  const titles = {
-    register: "Check your email",
-    reset: "Password reset sent",
+  const action = actions[type] ?? {
+    title: "Email sent",
+    message: `An email has been sent to ${email}. Please check your inbox.`,
+    run: null,
   };
-
-  const message =
-    messages[type] || "Please check your email for further instructions.";
-  const title = titles[type] || "Email sent";
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white px-4">
+    <div className="flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-md text-center">
         {/* Email Icon */}
         <div className="mb-8">
@@ -33,18 +49,32 @@ async function EmailSent({ searchParams }) {
         </div>
 
         {/* Title */}
-        <h1 className="mb-4 text-2xl font-bold text-foreground">{title}</h1>
+        <h1 className="mb-4 text-2xl font-bold text-foreground">
+          {action.title}
+        </h1>
 
         {/* Message */}
-        <p className="mb-8 leading-relaxed text-gray-600">{message}</p>
+        <p className="mb-8 leading-relaxed text-balance text-muted-foreground">
+          {action.message}
+        </p>
 
         {/* Action Buttons */}
         <div className="space-y-4">
           <p className="text-sm text-muted-foreground">
-            Didn&apos;t receive the email? Check your spam folder or{" "}
-            <button className="text-primary underline hover:text-primary-hover">
-              resend email
-            </button>
+            Didn&apos;t receive the email? Check your spam folder
+            {action.run && encodedEmail && (
+              <>
+                {" "}
+                or{" "}
+                <button
+                  className="text-primary underline hover:text-primary-hover"
+                  onClick={action.run}
+                >
+                  resend email
+                </button>
+              </>
+            )}
+            {"."}
           </p>
 
           <Link

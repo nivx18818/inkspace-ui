@@ -82,16 +82,53 @@ const authSlice = createSlice({
       .addCase(authThunks.logout.rejected, (state, action) => {
         state.isLoading = false;
       })
+      // forgotPassword cases
+      .addCase(authThunks.forgotPassword.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+        state.success = false;
+      })
+      .addCase(authThunks.forgotPassword.fulfilled, (state) => {
+        state.isLoading = false;
+        state.success = true;
+      })
+      .addCase(authThunks.forgotPassword.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+        state.success = false;
+      })
       // checkInfo cases
       .addCase(authThunks.checkInfo.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(authThunks.checkInfo.fulfilled, (state) => {
+      .addCase(authThunks.checkInfo.fulfilled, (state, action) => {
         state.isLoading = false;
         state.checkResult = action.payload;
       })
       .addCase(authThunks.checkInfo.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      // resendVerification cases
+      .addCase(authThunks.resendVerification.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(authThunks.resendVerification.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(authThunks.resendVerification.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      // resendReset cases
+      .addCase(authThunks.resendReset.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(authThunks.resendReset.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(authThunks.resendReset.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
