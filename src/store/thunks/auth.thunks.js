@@ -63,6 +63,18 @@ export const forgotPassword = createAsyncThunk(
   },
 );
 
+export const resetPassword = createAsyncThunk(
+  "auth/resetPassword",
+  async ({ token, password }, { rejectWithValue }) => {
+    const res = await httpRequest.post("/auth/reset-password", {
+      token,
+      password,
+    });
+    if (res.data.success) return true;
+    return rejectWithValue(res.error);
+  },
+);
+
 export const checkInfo = createAsyncThunk(
   "auth/checkInfo",
   async ({ type, value }, { rejectWithValue }) => {

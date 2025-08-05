@@ -97,6 +97,21 @@ const authSlice = createSlice({
         state.error = action.payload;
         state.success = false;
       })
+      // resetPassword cases
+      .addCase(authThunks.resetPassword.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+        state.success = false;
+      })
+      .addCase(authThunks.resetPassword.fulfilled, (state) => {
+        state.isLoading = false;
+        state.success = true;
+      })
+      .addCase(authThunks.resetPassword.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+        state.success = false;
+      })
       // checkInfo cases
       .addCase(authThunks.checkInfo.pending, (state) => {
         state.isLoading = true;
