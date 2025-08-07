@@ -7,11 +7,11 @@ import useAuth from "@/store/hooks/use-auth";
 
 function UserFetching() {
   const dispatch = useDispatch();
-  const { isAuthenticated } = useAuth();
+  const { success } = useAuth();
 
   useEffect(() => {
     dispatch(authThunks.me());
-  }, [dispatch, isAuthenticated]);
+  }, [dispatch, success]);
 
   return null;
 }
