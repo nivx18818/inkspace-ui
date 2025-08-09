@@ -14,7 +14,7 @@
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(52.78% 0.00006 271.152);
+    --muted-foreground: oklch(56.241% 0.00006 271.152);
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
     --destructive: oklch(58.206% 0.1622 23.587);
@@ -131,5 +131,24 @@
 
     button {
         cursor: pointer;
+    }
+}
+
+@utility post-form-textarea {
+    @apply field-sizing-content w-full resize-none border-none bg-transparent font-[inherit] text-foreground placeholder-[oklch(76.617%_0.00272_106.955)] outline-none;
+}
+
+@utility content-blocks-menu-button {
+    @apply flex h-8 w-8 items-center justify-center rounded-full border border-current;
+}
+
+@keyframes fade-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
