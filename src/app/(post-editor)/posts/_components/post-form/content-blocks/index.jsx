@@ -103,7 +103,30 @@ function ContentBlocks({ postContent }) {
     reader.readAsDataURL(file);
   };
 
-  const handleYoutubeEmbed = (index) => () => {};
+  const handleYoutubeEmbed = (index) => () => {
+    const videoUrl = prompt("Enter YouTube video URL:");
+    if (!videoUrl) return;
+
+    const videoId =
+      videoUrl.match(
+        /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)/,
+      )?.[1] ||
+      videoUrl.match(/(?:https?:\/\/)?(?:www\.)?youtu\.be\/([^&]+)/)?.[1];
+
+    if (!videoId) {
+      alert("Invalid YouTube URL");
+      return;
+    }
+
+    const newBlock = {
+      type: "youtube",
+      src: `https://www.youtube.com/embed/${videoId}`,
+    };
+    handleAddBlock(index, newBlock);
+
+    setMenuOpen(null);
+    focusById(newBlock.id);
+  };
 
   const handlePaste = (index) => async (e) => {
     const items = e.clipboardData.items;
