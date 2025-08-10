@@ -11,8 +11,8 @@ function LoginForm() {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("john.doe@example.com");
+  const [password, setPassword] = useState("password123");
   const { success, isLoading, error } = useAuth();
 
   useEffect(() => {
