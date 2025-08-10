@@ -37,8 +37,8 @@ function PostList({ topics, initialPosts, isInfiniteScroll = true }) {
 
       {/* Post list */}
       <div className="mt-8 space-y-6">
-        {posts?.map((post, index) => {
-          const featuredImage = post.content.find(
+        {posts?.map((post) => {
+          const featuredImage = JSON.parse(post.content).find(
             (block) => block.type === "image",
           );
 
