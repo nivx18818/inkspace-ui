@@ -1,7 +1,7 @@
 import httpRequest from "@/utils/http-request";
 
-export const getAll = async () => {
-  const res = await httpRequest.get("/posts");
+export const getList = async (page = 1, limit = 10) => {
+  const res = await httpRequest.get(`/posts?page=${page}&limit=${limit}`);
   if (res.error) console.error(res.error.message);
   return res.data;
 };
