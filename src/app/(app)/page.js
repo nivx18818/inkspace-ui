@@ -9,11 +9,11 @@ async function Home() {
   return (
     <div className="mx-auto max-w-7xl px-6">
       <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
-        <main className="pt-20 lg:col-span-2">
+        <main className="lg:col-span-2">
           <PostList topics={topics} initialPosts={posts} />
         </main>
 
-        <div className="sticky top-0 scrollbar-hidden max-h-screen overflow-y-scroll">
+        <div className="sticky top-18 scrollbar-hidden h-[calc(100dvh-4.5rem)] overflow-y-scroll py-4">
           <Sidebar topics={topics} posts={posts} />
         </div>
       </div>

@@ -6,7 +6,7 @@ import WhoToFollow from "./who-to-follow";
 
 function Sidebar({ topics, posts }) {
   return (
-    <aside className="pt-24 pb-12 lg:col-span-1">
+    <aside className="lg:col-span-1">
       <StaffPicks posts={posts} />
       <RecommendedTopics topics={topics} />
       <WhoToFollow />
