@@ -19,7 +19,7 @@ function TopicsBar({ topics }) {
         </div>
         <div className="flex items-center">
           <a
-            href="#"
+            href="/topics"
             className="text-sm whitespace-nowrap text-primary hover:text-green-700"
           >
             See all topics
