@@ -21,13 +21,13 @@ function TopicCard({ topic }) {
         </p>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 text-xs text-gray-500">
-            <span>{Math.floor(Math.random() * 100 + 50)}K followers</span>
-            <span>·</span>
-            <span>{Math.floor(Math.random() * 500 + 100)} stories</span>
+            {/* <span>{Math.floor(Math.random() * 100 + 50)}K followers</span>
+            <span>·</span> */}
+            <span>{topic.posts.length} stories</span>
           </div>
-          <button className="rounded-full border border-primary px-3 py-1 text-xs text-primary transition-colors hover:bg-green-50">
+          {/* <button className="rounded-full border border-primary px-3 py-1 text-xs text-primary transition-colors hover:bg-green-50">
             Follow
-          </button>
+          </button> */}
         </div>
       </a>
     </div>
