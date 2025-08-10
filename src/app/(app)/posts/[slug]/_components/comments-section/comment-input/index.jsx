@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import useCurrentUser from "@/store/hooks/user-current-user";
 import { commentService } from "@/services";
+import Link from "next/link";
 
 function CommentInput({ handleAddComment }) {
   const params = useParams();
@@ -45,9 +46,9 @@ function CommentInput({ handleAddComment }) {
     return (
       <div className="mb-6 rounded-lg border border-gray-200 bg-gray-50 p-4 text-center">
         <p className="text-gray-600">
-          <a href="/login" className="text-blue-600 hover:underline">
+          <Link href="/login" className="text-blue-600 hover:underline">
             Sign in
-          </a>{" "}
+          </Link>{" "}
           to join the conversation
         </p>
       </div>

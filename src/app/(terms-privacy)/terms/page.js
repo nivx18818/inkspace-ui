@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function Terms() {
@@ -94,12 +95,12 @@ function Terms() {
           </h2>
           <p className="leading-relaxed text-gray-700">
             Your privacy is important to us. Please review our{" "}
-            <a
+            <Link
               href="/privacy"
               className="text-primary underline hover:text-green-700"
             >
               Privacy Policy
-            </a>
+            </Link>
             , which also governs your use of the Service, to understand our
             practices.
           </p>
