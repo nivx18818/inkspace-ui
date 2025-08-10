@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 import { postService } from "@/services";
 
 import Link from "next/link";
-import Toaster from "@/components/toaster";
 import ArticleHeader from "./_components/article-header";
 import ArticleBody from "./_components/article-body";
 import ArticleFooter from "./_components/article-footer";
