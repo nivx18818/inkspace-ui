@@ -18,7 +18,7 @@ async function Topics() {
       </div>
 
       {/* Search Bar */}
-      <div className="mb-12">
+      {/* <div className="mb-12">
         <div className="relative mx-auto max-w-2xl">
           <input
             type="text"
@@ -41,7 +41,7 @@ async function Topics() {
             </svg>
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* All Topics */}
       <section>
