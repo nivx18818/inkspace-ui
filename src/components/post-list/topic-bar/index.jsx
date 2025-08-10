@@ -1,6 +1,6 @@
 function TopicsBar({ topics }) {
   return (
-    <div className="sticky top-16 z-40 border-b border-gray-200 bg-background">
+    <div className="sticky top-18 z-40 border-b border-gray-200 bg-background">
       <div className="mx-auto flex max-w-full gap-5 px-6 py-4">
         <div className="relative flex items-center space-x-2 overflow-x-hidden md:space-x-4 lg:space-x-8">
           <span className="text-sm whitespace-nowrap text-muted-foreground">
