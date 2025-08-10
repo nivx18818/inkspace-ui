@@ -34,9 +34,9 @@ function Header() {
               <FontAwesomeIcon icon={faEdit} className="h-4 w-4" />
               <span>Write</span>
             </a>
-            <button className="p-2 text-muted-foreground hover:text-foreground">
+            {/* <button className="p-2 text-muted-foreground hover:text-foreground">
               <FontAwesomeIcon icon={faSearch} className="h-5 w-5" />
-            </button>
+            </button> */}
 
             <UserMenu />
           </div>
