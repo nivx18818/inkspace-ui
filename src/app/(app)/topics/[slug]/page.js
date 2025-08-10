@@ -9,7 +9,6 @@ import TopicSidebar from "./_components/topic-sidebar";
 async function TopicDetail({ params }) {
   const { slug } = await params;
   const topic = await topicService.getBySlug(slug);
-  const posts = topic.Posts;
 
   if (!topic) {
     return (
@@ -34,19 +33,19 @@ async function TopicDetail({ params }) {
 
   return (
     <div className="min-h-screen bg-background">
-      <TopicHeroSection topic={topic} posts={posts} />
-      <FilterTabs />
+      <TopicHeroSection topic={topic} />
+      {/* <FilterTabs /> */}
 
       {/* Main Content */}
       <div className="mx-auto max-w-7xl px-6 py-8">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-3">
           {/* Posts List */}
           <main className="lg:col-span-2">
-            <PostList posts={posts} />
+            <PostList initialPosts={topic.posts} isInfiniteScroll={false} />
           </main>
 
           {/* Sidebar */}
-          <TopicSidebar topic={topic} posts={posts} />
+          {/* <TopicSidebar topic={topic} /> */}
         </div>
       </div>
     </div>

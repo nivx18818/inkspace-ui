@@ -33,7 +33,7 @@ function ArticleLeading({ post }) {
               })}
             </span>
             <span>·</span>
-            <span>{readingTime(post.content).text}</span>
+            <span>{readingTime(post.content.toString()).text}</span>
           </div>
         </div>
       </div>

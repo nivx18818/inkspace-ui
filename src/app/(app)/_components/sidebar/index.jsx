@@ -9,8 +9,8 @@ function Sidebar({ topics, posts }) {
     <aside className="lg:col-span-1">
       <StaffPicks posts={posts} />
       <RecommendedTopics topics={topics} />
-      <WhoToFollow />
-      <ReadingList posts={posts} />
+      {/* <WhoToFollow /> */}
+      {/* <ReadingList posts={posts} /> */}
       <FooterLinks />
     </aside>
   );

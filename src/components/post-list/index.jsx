@@ -13,7 +13,7 @@ import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { postService } from "@/services";
 import Image from "next/image";
 
-function PostList({ topics, initialPosts }) {
+function PostList({ topics, initialPosts, isInfiniteScroll = true }) {
   const [posts, setPosts] = useState(initialPosts);
   const [page, setPage] = useState(1);
   const loader = useRef();
@@ -33,7 +33,7 @@ function PostList({ topics, initialPosts }) {
 
   return (
     <div className="mx-auto max-w-4xl px-4">
-      <TopicsBar topics={topics} />
+      {topics && topics.length && <TopicsBar topics={topics} />}
 
       {/* Post list */}
       <div className="mt-8 space-y-6">
@@ -142,7 +142,7 @@ function PostList({ topics, initialPosts }) {
         })}
 
         {/* Infinite scroll */}
-        <div ref={loader} className="h-4" />
+        {isInfiniteScroll && <div ref={loader} className="h-4" />}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ function Header() {
             <a href="/" className="text-2xl font-bold text-foreground">
               Inkspace
             </a>
-            <nav className="hidden items-center space-x-6 md:flex">
+            {/* <nav className="hidden items-center space-x-6 md:flex">
               <a
                 href="/about"
                 className="text-sm text-muted-foreground hover:text-foreground"
@@ -24,7 +24,7 @@ function Header() {
               >
                 Membership
               </a>
-            </nav>
+            </nav> */}
           </div>
           <div className="flex items-center space-x-4">
             <a

@@ -25,7 +25,7 @@ async function TopicSidebar({ topic, posts }) {
       <div className="sticky top-32">
         <RelatedTopics topic={topic} topics={topics} />
         <FeaturedWriter topic={topic} />
-        <TopicStats topic={topic} posts={posts} />
+        <TopicStats topic={topic} posts={topic.posts} />
         <FooterLinks />
       </div>
     </aside>
