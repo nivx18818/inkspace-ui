@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 
 function AuthLayout({ children }) {
@@ -12,7 +13,7 @@ function AuthLayout({ children }) {
 
       {/* Main Content */}
       <main className="flex flex-1 items-center justify-center px-6 py-12">
-        {children}
+        <Suspense>{children}</Suspense>
       </main>
     </div>
   );
