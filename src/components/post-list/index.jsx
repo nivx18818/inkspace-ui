@@ -38,9 +38,19 @@ function PostList({ topics, initialPosts, isInfiniteScroll = true }) {
       {/* Post list */}
       <div className="mt-8 space-y-6">
         {posts?.map((post) => {
-          const featuredImage = JSON.parse(post.content).find(
-            (block) => block.type === "image",
-          );
+          const blocks = (() => {
+            try {
+              const parsedBlocks = JSON.parse(post.content ?? "[]");
+              if (!Array.isArray(parsedBlocks)) {
+                return [];
+              }
+              return parsedBlocks;
+            } catch {
+              return [];
+            }
+          })();
+
+          const featuredImage = blocks.find((block) => block.type === "image");
 
           return (
             <article key={post.id} className="border-b border-gray-200 pb-6">
