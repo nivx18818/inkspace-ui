@@ -1,5 +1,5 @@
-import store from "@/store";
 import axios from "axios";
+import store from "@/store";
 
 const httpRequest = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_API_URL,
