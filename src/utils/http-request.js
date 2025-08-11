@@ -1,5 +1,4 @@
 import store from "@/store";
-import { authThunks } from "@/store/thunks";
 import axios from "axios";
 
 const httpRequest = axios.create({
@@ -66,6 +65,7 @@ httpRequest.interceptors.response.use(
     isRefreshing = true;
 
     try {
+      const { authThunks } = await import("@/store/thunks");
       const result = await store.dispatch(authThunks.refreshToken());
 
       if (authThunks.refreshToken.rejected.match(result)) {
@@ -78,6 +78,8 @@ httpRequest.interceptors.response.use(
       return httpRequest(originalRequest);
     } catch (error) {
       console.error(error);
+
+      const { authThunks } = await import("@/store/thunks");
       store.dispatch(authThunks.logout());
 
       failedQueue.forEach(({ reject }) => {
