@@ -1,11 +1,21 @@
 function ArticleBody({ post }) {
+  const blocks = (() => {
+    try {
+      const parsedBlocks = JSON.parse(postContent ?? "[]");
+      if (!Array.isArray(parsedBlocks)) return [];
+      return parsedBlocks;
+    } catch {
+      return [];
+    }
+  })();
+
   return (
     <div className="space-y-8">
       <p className="text-xl leading-relaxed font-light text-muted-foreground">
         {post.description}
       </p>
 
-      {post.content.map((block) => {
+      {blocks.map((block) => {
         switch (block.type) {
           case "text":
             return (
